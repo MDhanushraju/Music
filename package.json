@@ -1,0 +1,31 @@
+{
+  "name": "tarang-radio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tarang - Modern City-Based FM Radio Streaming Platform",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "build": "npm run build:frontend",
+    "start": "npm run start:backend",
+    "prod": "npm run build && npm run start",
+    "dev": "npm run dev:frontend",
+    "dev:all": "node -e \"const { spawn } = require('child_process'); spawn('npm', ['--prefix', 'backend', 'run', 'dev'], { stdio: 'inherit', shell: true }); spawn('npm', ['--prefix', 'frontend', 'run', 'dev'], { stdio: 'inherit', shell: true });\"",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "npm --prefix backend run dev",
+    "build:frontend": "npm --prefix frontend run build",
+    "start:backend": "npm --prefix backend start"
+  },
+  "keywords": [
+    "radio",
+    "fm",
+    "livestream",
+    "creator-platform",
+    "spotify-for-radio",
+    "audio"
+  ],
+  "author": "Tarang Team",
+  "license": "MIT"
+}

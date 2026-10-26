@@ -1,0 +1,12 @@
+node_modules
+*/node_modules
+.git
+.github
+*.log
+.env
+.env.local
+.system_generated
+.agents
+scratch
+dist
+frontend/dist

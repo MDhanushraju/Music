@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarang Studio - RJ On-Air Live Broadcast Console</title>
+  <meta name="description" content="Professional live streaming console for Tarang radio creators and RJs. Dual music decks, auto-ducking mixer, soundboard, and live listener chat.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="studio/studio.css">
+</head>
+<body>
+  <!-- Top Broadcast Bar -->
+  <header class="studio-topbar">
+    <div class="topbar-left">
+      <a href="index.html" class="btn-exit-studio" title="Back to Tarang Radio">
+        <span>←</span> Exit Studio
+      </a>
+      <div class="studio-brand-badge">
+        <span class="brand-name">tarang</span>
+        <span class="studio-tag">ON-AIR STUDIO</span>
+      </div>
+    </div>
+
+    <div class="topbar-center">
+      <div class="on-air-box" id="on-air-sign">
+        <span class="air-dot"></span>
+        <span id="on-air-text">OFF AIR</span>
+      </div>
+
+      <div class="show-stats-row">
+        <div class="show-stat-item">
+          <span class="stat-dot-green"></span>
+          <strong id="live-listeners-display">1</strong> listeners
+        </div>
+        <div class="show-stat-item">
+          ⏱️ <span id="broadcast-timer-display">00:00:00</span>
+        </div>
+        <div class="show-stat-item" style="color:#aaa;">
+          🎙️ <strong id="studio-rj-name">RJ Alwin</strong> · <span id="studio-city-display">Bengaluru</span>
+        </div>
+      </div>
+
+      <canvas class="spectrum-canvas" id="studio-spectrum-canvas" width="140" height="32" title="Broadcast Audio Spectrum"></canvas>
+    </div>
+
+    <div class="topbar-right">
+      <button class="btn-record-show" id="btn-record-show" title="Record entire show audio to disk">
+        <span>⏺️</span> Record Show
+      </button>
+
+      <button class="btn-master-broadcast" id="btn-master-broadcast">
+        <span class="air-dot" style="background:#fff;"></span>
+        <span id="broadcast-btn-text">Start Live Broadcast</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Studio Main Workspace -->
+  <main class="studio-layout">
+
+    <!-- ====================================================================
+         LEFT COLUMN: 4-CHANNEL AUDIO MIXER & MIC CHAIN
+         ==================================================================== -->
+    <aside class="studio-col-left">
+      <section class="console-card">
+        <div class="console-card-header">
+          <h2 class="card-title">🎛️ Audio Mixer</h2>
+          <span class="card-badge">PROGRAM BUS</span>
+        </div>
+
+        <!-- 4-Channel Vertical Mixer Faders & VU Meters -->
+        <div class="mixer-channels-grid">
+          <!-- Channel 1: Mic -->
+          <div class="channel-strip">
+            <span class="strip-name">Mic</span>
+            <div class="meter-strip-vertical">
+              <div class="meter-fill-bar" id="vu-fill-mic"></div>
+              <div class="meter-peak-bar" id="vu-peak-mic"></div>
+            </div>
+            <div class="fader-slider-wrap">
+              <input type="range" class="vertical-fader" id="fader-mic" min="0" max="1.5" step="0.01" value="1.0" orient="vertical">
+            </div>
+            <span class="fader-val-label">0 dB</span>
+          </div>
+
+          <!-- Channel 2: Music -->
+          <div class="channel-strip">
+            <span class="strip-name">Music</span>
+            <div class="meter-strip-vertical">
+              <div class="meter-fill-bar" id="vu-fill-music"></div>
+              <div class="meter-peak-bar" id="vu-peak-music"></div>
+            </div>
+            <div class="fader-slider-wrap">
+              <input type="range" class="vertical-fader" id="fader-music" min="0" max="1.5" step="0.01" value="0.9" orient="vertical">
+            </div>
+            <span class="fader-val-label">-1 dB</span>
+          </div>
+
+          <!-- Channel 3: SFX -->
+          <div class="channel-strip">
+            <span class="strip-name">SFX</span>
+            <div class="meter-strip-vertical">
+              <div class="meter-fill-bar" id="vu-fill-sfx"></div>
+              <div class="meter-peak-bar" id="vu-peak-sfx"></div>
+            </div>
+            <div class="fader-slider-wrap">
+              <input type="range" class="vertical-fader" id="fader-sfx" min="0" max="1.5" step="0.01" value="0.8" orient="vertical">
+            </div>
+            <span class="fader-val-label">-2 dB</span>
+          </div>
+
+          <!-- Channel 4: Master Out -->
+          <div class="channel-strip" style="background:#1c1822;border-color:rgba(255,102,0,0.2);">
+            <span class="strip-name" style="color:var(--accent-orange);">Main</span>
+            <div class="meter-strip-vertical">
+              <div class="meter-fill-bar" id="vu-fill-master"></div>
+              <div class="meter-peak-bar" id="vu-peak-master"></div>
+            </div>
+            <div class="fader-slider-wrap">
+              <input type="range" class="vertical-fader" id="fader-master" min="0" max="1.5" step="0.01" value="1.0" orient="vertical">
+            </div>
+            <span class="fader-val-label">0 dB</span>
+          </div>
+        </div>
+
+        <!-- Master Mic Big Push Toggle -->
+        <div class="mic-master-box">
+          <button class="mic-toggle-big" id="btn-mic-toggle">
+            <span class="mic-icon-pulse">🎙️</span>
+            <span id="mic-toggle-label">MIC MUTED (Click to Talk)</span>
+          </button>
+
+          <select class="mic-device-select" id="mic-device-select" title="Microphone Device">
+            <option value="">Detecting audio inputs...</option>
+          </select>
+
+          <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:var(--text-secondary);">
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+              <input type="checkbox" id="toggle-voice-enhance" checked>
+              <span>Voice EQ & Compressor</span>
+            </label>
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+              <input type="checkbox" id="toggle-mic-monitor">
+              <span>Hear Self in Phones</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Auto-Ducking Intelligence Box -->
+        <div class="ducking-control-card">
+          <div class="ducking-header-row">
+            <strong style="font-size:0.85rem;color:#fff;">Auto-Ducking</strong>
+            <span class="duck-status-pill" id="duck-status-pill">STANDBY</span>
+          </div>
+          <p style="font-size:0.75rem;color:var(--text-secondary);">Lowers background music automatically while you speak</p>
+
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span>Music Level While Talking:</span>
+              <strong id="duck-level-val" style="color:var(--accent-orange-bright);">25%</strong>
+            </div>
+            <input type="range" class="studio-range" id="duck-level-slider" min="5" max="60" value="25">
+          </div>
+
+          <label style="display:flex;align-items:center;gap:8px;font-size:0.78rem;color:var(--text-secondary);cursor:pointer;">
+            <input type="checkbox" id="toggle-ducking" checked>
+            <span>Enable Auto-Ducking</span>
+          </label>
+        </div>
+
+        <!-- Headphone Monitor Level -->
+        <div class="slider-group" style="padding-top:4px;">
+          <div class="slider-label-row">
+            <span>🎧 RJ Headphones Monitor:</span>
+          </div>
+          <input type="range" class="studio-range" id="fader-headphones" min="0" max="1" step="0.01" value="0.8">
+        </div>
+
+      </section>
+    </aside>
+
+    <!-- ====================================================================
+         CENTER COLUMN: DUAL MUSIC DECKS & LIBRARY
+         ==================================================================== -->
+    <section class="studio-col-center">
+      <div class="console-card" style="height:100%;">
+        <div class="console-card-header">
+          <h2 class="card-title">🎵 Music Decks & On-Air Library</h2>
+          <div style="font-size:0.8rem;color:var(--text-secondary);">
+            Show: <strong id="studio-channel-name" style="color:#fff;">The Indie Express</strong>
+          </div>
+        </div>
+
+        <!-- Dual Turntables / Decks -->
+        <div class="decks-wrapper">
+          <!-- Deck A -->
+          <div class="turntable-deck active-deck" id="deck-box-a">
+            <div class="deck-tag-row">
+              <span class="deck-badge deck-a">DECK A</span>
+              <span class="deck-state-pill" id="deck-a-state">Ready</span>
+            </div>
+            <div class="deck-track-meta">
+              <img class="deck-art" id="deck-a-art" src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=150" alt="Art">
+              <div class="deck-info">
+                <div class="deck-title" id="deck-a-title">Monsoon Chai & Bangalore Lo-Fi</div>
+                <div class="deck-artist" id="deck-a-artist">Tarang Acoustic Lab · Lo-Fi</div>
+              </div>
+            </div>
+            <div class="deck-progress-wrap">
+              <div class="deck-progress-bar" id="deck-a-progress-bar">
+                <div class="deck-progress-fill" id="deck-a-progress-fill"></div>
+              </div>
+              <div class="deck-time-row">
+                <span id="deck-a-time">0:00 / 3:04</span>
+                <span>Track 1</span>
+              </div>
+            </div>
+            <div class="deck-buttons-row">
+              <button class="btn-deck-play" id="btn-deck-a-play">▶ Play</button>
+              <button class="btn-deck-cue" id="btn-deck-a-cue">CUE</button>
+            </div>
+          </div>
+
+          <!-- Deck B -->
+          <div class="turntable-deck" id="deck-box-b">
+            <div class="deck-tag-row">
+              <span class="deck-badge deck-b">DECK B</span>
+              <span class="deck-state-pill" id="deck-b-state">Standby</span>
+            </div>
+            <div class="deck-track-meta">
+              <img class="deck-art" id="deck-b-art" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=150" alt="Art">
+              <div class="deck-info">
+                <div class="deck-title" id="deck-b-title">Marine Drive Sunset Groove</div>
+                <div class="deck-artist" id="deck-b-artist">RJ Studio Beats · Indie</div>
+              </div>
+            </div>
+            <div class="deck-progress-wrap">
+              <div class="deck-progress-bar" id="deck-b-progress-bar">
+                <div class="deck-progress-fill" id="deck-b-progress-fill"></div>
+              </div>
+              <div class="deck-time-row">
+                <span id="deck-b-time">0:00 / 3:35</span>
+                <span>Track 2</span>
+              </div>
+            </div>
+            <div class="deck-buttons-row">
+              <button class="btn-deck-play" id="btn-deck-b-play">▶ Play</button>
+              <button class="btn-deck-cue" id="btn-deck-b-cue">CUE</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- DJ Crossfader Unit -->
+        <div class="crossfader-unit">
+          <div class="crossfader-label-row">
+            <span>◀ DECK A</span>
+            <span style="color:#aaa;">SMOOTH CROSSFADER</span>
+            <span>DECK B ▶</span>
+          </div>
+          <input type="range" class="crossfade-slider" id="crossfade-slider" min="0" max="1" step="0.01" value="0.5">
+        </div>
+
+        <!-- Music Library Tabs & Search -->
+        <div class="library-tabs-bar">
+          <button class="lib-tab-btn active" data-tab="trending">🔥 Trending Hits</button>
+          <button class="lib-tab-btn" data-tab="search">🔍 Audius Search</button>
+          <button class="lib-tab-btn" data-tab="uploads">📂 My Uploads</button>
+        </div>
+
+        <div class="library-search-box">
+          <input type="text" class="search-track-input" id="search-track-input" placeholder="Search indie tracks, lo-fi beats, acoustics on Audius...">
+          <select class="genre-filter-select" id="genre-filter-select">
+            <option value="All">All Genres</option>
+            <option value="Lo-Fi">Lo-Fi</option>
+            <option value="Hip-Hop/Rap">Hip-Hop</option>
+            <option value="Acoustic">Acoustic</option>
+            <option value="Ambient">Ambient</option>
+            <option value="Pop">Pop</option>
+            <option value="World">World / Desi</option>
+            <option value="Jazz">Jazz</option>
+            <option value="Alternative">Alternative</option>
+            <option value="Devotional">Devotional</option>
+            <option value="Rock">Rock</option>
+          </select>
+          <input type="file" id="file-upload-track" accept="audio/*" multiple style="display:none;">
+        </div>
+
+        <!-- Track Results List -->
+        <div class="track-results-container" id="track-results-container">
+          <!-- Populated dynamically by studio.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         RIGHT COLUMN: SOUNDBOARD, SHOUTOUTS & REALTIME CHAT
+         ==================================================================== -->
+    <aside class="studio-col-right">
+      <section class="console-card" style="height:100%;">
+
+        <!-- Soundboard FX Unit -->
+        <div>
+          <div class="console-card-header">
+            <h2 class="card-title">🔊 Soundboard FX</h2>
+            <span class="card-badge">HOTKEYS 1-8</span>
+          </div>
+
+          <div class="soundboard-pads-grid" style="margin-top:12px;">
+            <button class="sfx-pad-btn" data-sfx="airhorn">
+              <span class="sfx-pad-key">1</span>
+              <span class="sfx-pad-icon">📢</span>
+              <span>Airhorn</span>
+            </button>
+            <button class="sfx-pad-btn" data-sfx="applause">
+              <span class="sfx-pad-key">2</span>
+              <span class="sfx-pad-icon">👏</span>
+              <span>Applause</span>
+            </button>
+            <button class="sfx-pad-btn" data-sfx="jingle">
+              <span class="sfx-pad-key">3</span>
+              <span class="sfx-pad-icon">📻</span>
+              <span>Station Jingle</span>
+            </button>
+            <button class="sfx-pad-btn" data-sfx="scratch">
+              <span class="sfx-pad-key">4</span>
+              <span class="sfx-pad-icon">💿</span>
+              <span>Vinyl Scratch</span>
+            </button>
+            <button class="sfx-pad-btn" data-sfx="laugh">
+              <span class="sfx-pad-key">5</span>
+              <span class="sfx-pad-icon">😂</span>
+              <span>Laugh Track</span>
+            </button>
+            <button class="sfx-pad-btn" data-sfx="rimshot">
+              <span class="sfx-pad-key">6</span>
+              <span class="sfx-pad-icon">🥁</span>
+              <span>Rimshot</span>
+            </button>
+            <button class="sfx-pad-btn" data-sfx="laser">
+              <span class="sfx-pad-key">7</span>
+              <span class="sfx-pad-icon">⚡</span>
+              <span>Laser Sting</span>
+            </button>
+            <button class="sfx-pad-btn" data-sfx="radiobeep">
+              <span class="sfx-pad-key">8</span>
+              <span class="sfx-pad-icon">🚨</span>
+              <span>Radio Beep</span>
+            </button>
+          </div>
+
+          <div style="margin-top:8px;text-align:right;">
+            <input type="file" id="file-upload-sfx" accept="audio/*" multiple style="display:none;">
+            <button class="btn-load-deck" style="font-size:0.72rem;background:#181822;" onclick="document.getElementById('file-upload-sfx').click()">
+              + Add Custom Drops
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick Voice Drop / TTS Announcement -->
+        <div class="shoutout-box">
+          <strong style="font-size:0.82rem;color:#fff;">📢 RJ Voice Drop / Shoutout</strong>
+          <input type="text" class="shoutout-input" id="shoutout-text-input" placeholder="Type a shoutout for the AI voice to announce...">
+          <button class="btn-speak-shoutout" id="btn-speak-shoutout">Speak On Air (Auto-Ducks Music)</button>
+        </div>
+
+        <!-- Live Listener Chat Stream -->
+        <div class="studio-chat-container">
+          <div class="console-card-header" style="padding-bottom:6px;">
+            <h2 class="card-title">💬 Live Listener Chat</h2>
+            <span class="card-badge" style="background:#10b981;color:#fff;">LIVE</span>
+          </div>
+
+          <div class="studio-chat-messages" id="studio-chat-messages">
+            <div class="chat-msg-row">
+              <span class="chat-msg-author">Tarang Bot:</span>
+              <span class="chat-msg-text">Broadcast room ready. Realtime messages from listeners will show here!</span>
+            </div>
+          </div>
+
+          <form class="chat-reply-form" id="studio-chat-form">
+            <input type="text" class="chat-reply-input" id="studio-chat-input" placeholder="Reply to listeners as RJ..." required>
+            <button type="submit" class="btn-chat-send">Send</button>
+          </form>
+        </div>
+
+      </section>
+    </aside>
+
+  </main>
+
+  <!-- Studio Scripts -->
+  <script src="studio/studio.js" type="module"></script>
+</body>
+</html>

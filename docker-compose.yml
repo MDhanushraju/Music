@@ -1,0 +1,45 @@
+services:
+  # PostgreSQL 16 Database
+  db:
+    image: postgres:16-alpine
+    container_name: tarang-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-tarang}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-tarang_password_demo}
+      POSTGRES_DB: ${POSTGRES_DB:-tarang}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-tarang} -d ${POSTGRES_DB:-tarang}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Tarang Radio App (Backend API + WebSockets + Frontend SPA)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tarang-app
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PORT: 4000
+      NODE_ENV: production
+      DATABASE_URL: postgres://${POSTGRES_USER:-tarang}:${POSTGRES_PASSWORD:-tarang_password_demo}@db:5432/${POSTGRES_DB:-tarang}
+      CORS_ORIGIN: "*"
+    ports:
+      - "4000:4000"
+    volumes:
+      - app_data:/app/backend/data
+
+volumes:
+  postgres_data:
+    driver: local
+  app_data:
+    driver: local

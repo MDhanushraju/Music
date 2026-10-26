@@ -1,0 +1,264 @@
+/**
+ * Tarang Initial Seed Data
+ * Cities and channels aligned with Tarang specification
+ */
+
+export const CITIES = [
+  {
+    id: 'bengaluru',
+    name: 'Bengaluru',
+    slug: 'bengaluru',
+    freq: '91.1 MHz Stream',
+    lat: 12.9716,
+    lng: 77.5946
+  },
+  {
+    id: 'mumbai',
+    name: 'Mumbai',
+    slug: 'mumbai',
+    freq: '98.3 MHz Stream',
+    lat: 19.0760,
+    lng: 72.8777
+  },
+  {
+    id: 'delhi',
+    name: 'Delhi',
+    slug: 'delhi',
+    freq: '104.0 MHz Stream',
+    lat: 28.7041,
+    lng: 77.1025
+  },
+  {
+    id: 'chennai',
+    name: 'Chennai',
+    slug: 'chennai',
+    freq: '93.5 MHz Stream',
+    lat: 13.0827,
+    lng: 80.2707
+  },
+  {
+    id: 'kolkata',
+    name: 'Kolkata',
+    slug: 'kolkata',
+    freq: '91.9 MHz Stream',
+    lat: 22.5726,
+    lng: 88.3639
+  },
+  {
+    id: 'hyderabad',
+    name: 'Hyderabad',
+    slug: 'hyderabad',
+    freq: '92.7 MHz Stream',
+    lat: 17.3850,
+    lng: 78.4867
+  },
+  {
+    id: 'kochi',
+    name: 'Kochi',
+    slug: 'kochi',
+    freq: '94.3 MHz Stream',
+    lat: 9.9312,
+    lng: 76.2673
+  },
+  {
+    id: 'goa',
+    name: 'Goa',
+    slug: 'goa',
+    freq: '92.7 MHz Stream',
+    lat: 15.2993,
+    lng: 74.1240
+  }
+];
+
+export const INITIAL_CHANNELS = [
+  // Bengaluru
+  {
+    id: 'blr-namma-morning',
+    cityId: 'bengaluru',
+    slug: 'namma-morning',
+    title: 'Namma Morning',
+    rj: 'RJ Kavya',
+    lang: 'Kannada & English talk',
+    tags: ['Talk', 'Indie', 'Morning Show'],
+    listeners: 1342,
+    isLive: true,
+    gradient: 'linear-gradient(135deg, #ff6600, #993300)',
+    talkScript: "Good morning Bengaluru! This is RJ Kavya on Tarang Namma Morning 91.1. Grab your piping hot filter coffee, traffic on Outer Ring Road is moving slow as usual, but we've got some lovely indie Kannada vibes lined up for you!"
+  },
+  {
+    id: 'blr-koramangala-code',
+    cityId: 'bengaluru',
+    slug: 'koramangala-chai-code',
+    title: 'Koramangala Chai & Code',
+    rj: 'RJ Abhi',
+    lang: 'English & Hindi banter',
+    tags: ['Talk', 'Late Night'],
+    listeners: 890,
+    isLive: true,
+    gradient: 'linear-gradient(135deg, #1f1f26, #ff7a1a)',
+    talkScript: "What's up techies and night owls! You're tuned into Koramangala Chai & Code on Tarang. Debugging past midnight? Sit back, take a breath, let these lo-fi beats keep your sanity intact."
+  },
+  {
+    id: 'blr-indiranagar-indie',
+    cityId: 'bengaluru',
+    slug: 'indiranagar-indie-wave',
+    title: 'Indiranagar Indie Wave',
+    rj: 'RJ Maya',
+    lang: 'Kannada Indie & Folk',
+    tags: ['Indie', 'Music'],
+    listeners: 1120,
+    isLive: true,
+    gradient: 'linear-gradient(135deg, #ffa826, #d94d00)',
+    talkScript: "Hey music lovers! Welcome to Indiranagar Indie Wave on Tarang 91.1. We are highlighting fresh grassroots singer-songwriters from across Karnataka today."
+  },
+  // Mumbai
+  {
+    id: 'mum-meri-jaan',
+    cityId: 'mumbai',
+    slug: 'mumbai-meri-jaan',
+    title: 'Mumbai Meri Jaan',
+    rj: 'RJ Rohit',
+    lang: 'Hindi & Bambaiya talk',
+    tags: ['Bollywood', 'Morning Show', 'Talk'],
+    listeners: 3215,
+    isLive: true,
+    gradient: 'linear-gradient(135deg, #ff4d00, #7a1f00)',
+    talkScript: "Aamchi Mumbai! This is RJ Rohit on Tarang Mumbai 98.3. Local train updates: Western line running on time, weather is pleasant at Marine Drive. Ready for some retro Bollywood magic?"
+  },
+  {
+    id: 'mum-marine-confessions',
+    cityId: 'mumbai',
+    slug: 'marine-drive-confessions',
+    title: 'Marine Drive Confessions',
+    rj: 'RJ Tara',
+    lang: 'Hindi & Urdu poetry',
+    tags: ['Late Night', 'Talk'],
+    listeners: 2150,
+    isLive: true,
+    gradient: 'linear-gradient(135deg, #18181f, #ff6600)',
+    talkScript: "Shubh raatri Mumbai. You are listening to RJ Tara on Tarang. Sit by the sea breeze, let go of the hectic city rush, and share your untold stories with us."
+  },
+  {
+    id: 'mum-gully-beats',
+    cityId: 'mumbai',
+    slug: 'gully-cyphers-beats',
+    title: 'Gully Cyphers & Hip-Hop',
+    rj: 'MC D-Street',
+    lang: 'Hindi & Marathi rap',
+    tags: ['Music', 'Indie'],
+    listeners: 1450,
+    isLive: true,
+    gradient: 'linear-gradient(135deg, #ff9900, #cc4400)',
+    talkScript: "Representing Mumbai street sounds on Tarang! Fresh underground hip-hop, boom bap, and desi flows right to your headphones!"
+  },
+  // Delhi
+  {
+    id: 'del-dilli6-gupshup',
+    cityId: 'delhi',
+    slug: 'dilli6-chai-gupshup',
+    title: 'Dilli 6 Chai & Gupshup',
+    rj: 'RJ Nitin',
+    lang: 'Hindi talk & humor',
+    tags: ['Talk', 'Comedy', 'Morning Show'],
+    listeners: 2840,
+    isLive: true,
+    gradient: 'linear-gradient(135deg, #ea580c, #9a3412)',
+    talkScript: "Haan ji Dilli walon! RJ Nitin hazir hai Tarang Delhi 104.0 par. CP ki thand, Chandni Chowk ki jalebi aur humara live gupshup show! Bhejo apne shoutouts!"
+  },
+  {
+    id: 'del-hauz-khas-indie',
+    cityId: 'delhi',
+    slug: 'hauz-khas-indie-sunset',
+    title: 'Hauz Khas Indie Sunset',
+    rj: 'RJ Sam',
+    lang: 'English & Hindi Indie',
+    tags: ['Indie', 'Music'],
+    listeners: 1780,
+    isLive: true,
+    gradient: 'linear-gradient(135deg, #ff851a, #201a14)',
+    talkScript: "Good evening Delhi! Tuning into Hauz Khas Indie Sunset on Tarang. Independent music from university campuses and garage bands across the capital."
+  },
+  // Chennai
+  {
+    id: 'chn-morning-kapi',
+    cityId: 'chennai',
+    slug: 'madras-morning-kapi',
+    title: 'Madras Morning Kapi',
+    rj: 'RJ Ananya',
+    lang: 'Tamil & English cine talk',
+    tags: ['Morning Show', 'Talk', 'Bollywood'],
+    listeners: 1920,
+    isLive: true,
+    gradient: 'linear-gradient(135deg, #d97706, #78350f)',
+    talkScript: "Vanakkam Chennai! RJ Ananya with you on Tarang Chennai 93.5. Morning filter coffee in hand, breezy Marina beach air, and the greatest Kollywood melodies streaming live!"
+  },
+  {
+    id: 'chn-marina-acoustic',
+    cityId: 'chennai',
+    slug: 'marina-coastal-rhythms',
+    title: 'Marina Coastal Rhythms',
+    rj: 'RJ Karthik',
+    lang: 'Tamil Fusion & Folk',
+    tags: ['Indie', 'Music'],
+    listeners: 1410,
+    isLive: true,
+    gradient: 'linear-gradient(135deg, #ff6600, #17171e)',
+    talkScript: "Vanakkam! Tune into Marina Coastal Rhythms on Tarang. Blending traditional Carnatic notes with contemporary acoustic indie grooves."
+  },
+  // Kolkata
+  {
+    id: 'kol-adda-radio',
+    cityId: 'kolkata',
+    slug: 'kolkata-evening-adda',
+    title: 'Kolkata Evening Adda',
+    rj: 'RJ Sourav',
+    lang: 'Bengali & English banter',
+    tags: ['Talk', 'Late Night'],
+    listeners: 1670,
+    isLive: true,
+    gradient: 'linear-gradient(135deg, #b45309, #451a03)',
+    talkScript: "Nomoshkar Kolkata! RJ Sourav here on Tarang 91.9. Time for cha and roadside adda. Tell us what's happening around College Street today!"
+  },
+  // Hyderabad
+  {
+    id: 'hyd-charminar-chai',
+    cityId: 'hyderabad',
+    slug: 'charminar-chai-fm',
+    title: 'Charminar Chai FM',
+    rj: 'RJ Farah',
+    lang: 'Hyderabadi Hindi & Telugu',
+    tags: ['Morning Show', 'Talk'],
+    listeners: 1540,
+    isLive: true,
+    gradient: 'linear-gradient(135deg, #f97316, #7c2d12)',
+    talkScript: "Kaiku re bhai, kaisa chal raha din? RJ Farah with you on Tarang Hyderabad 92.7! Piping hot Irani chai, Osmania biscuits and non-stop music!"
+  },
+  // Kochi
+  {
+    id: 'koc-backwater-bulletin',
+    cityId: 'kochi',
+    slug: 'backwater-bulletin',
+    title: 'Backwater Bulletin',
+    rj: 'RJ Vishnu',
+    lang: 'Malayalam & English',
+    tags: ['Indie', 'Talk'],
+    listeners: 1210,
+    isLive: true,
+    gradient: 'linear-gradient(135deg, #ea580c, #431407)',
+    talkScript: "Namaskaram Kochi! Tuning into Backwater Bulletin on Tarang 94.3. Monsoon breezes, lakeside tunes, and the best indie Malayalam tracks."
+  },
+  // Goa
+  {
+    id: 'goa-sunset-chills',
+    cityId: 'goa',
+    slug: 'anjuna-sunset-chills',
+    title: 'Anjuna Sunset Chills',
+    rj: 'RJ Leo',
+    lang: 'English & Konkani',
+    tags: ['Music', 'Indie', 'Late Night'],
+    listeners: 1820,
+    isLive: true,
+    gradient: 'linear-gradient(135deg, #ff7a1a, #991b1b)',
+    talkScript: "Peace and love from sunny Goa! RJ Leo on Tarang Goa 92.7. Golden hour by the ocean, acoustic guitars, and laid-back coastal vibrations."
+  }
+];
