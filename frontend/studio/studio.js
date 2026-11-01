@@ -510,7 +510,7 @@ class StudioController {
     fetch(`/api/v1/channels/${this.activeChannelId}/broadcasts`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ rj: this.activeRjName, title: this.activeChannelTitle })
+      body: JSON.stringify({ rj: this.activeRjName, title: this.activeChannelTitle, city: this.activeCity })
     }).catch(() => {});
 
     // Soundboard opening jingle
@@ -619,34 +619,44 @@ class StudioController {
           <img class="track-item-art" src="${track.artwork || 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=150'}" alt="Art">
           <div class="track-item-text">
             <div class="track-item-title">${track.title}</div>
-            <div class="track-item-artist">${track.artist} · ${track.genre || 'Indie'}</div>
+            <div class="track-item-artist">${track.artist} · <span style="font-size:0.75rem;padding:2px 6px;border-radius:4px;background:rgba(255,168,38,0.15);color:#ffa826;">${track.licenseName || 'CC'}</span></div>
+            <div style="font-size:0.7rem;margin-top:2px;">
+              <a href="${track.shareurl || 'https://www.jamendo.com'}" target="_blank" rel="noopener noreferrer" style="color:#aaa;text-decoration:underline;">Jamendo Track</a> · 
+              <a href="${track.license_ccurl || 'https://creativecommons.org'}" target="_blank" rel="noopener noreferrer" style="color:#888;">License info</a>
+            </div>
           </div>
         </div>
         <div class="track-item-actions">
-          <button class="btn-load-deck btn-load-a" data-deck="A">Deck A</button>
-          <button class="btn-load-deck btn-load-b" data-deck="B">Deck B</button>
-          <button class="btn-load-deck btn-add-q">Queue</button>
+          ${track.isPlayable ? `
+            <button class="btn-load-deck btn-load-a" data-deck="A">Deck A</button>
+            <button class="btn-load-deck btn-load-b" data-deck="B">Deck B</button>
+            <button class="btn-load-deck btn-add-q">Queue</button>
+          ` : `
+            <span style="font-size:0.75rem;color:#ef4444;background:rgba(239,68,68,0.12);padding:4px 8px;border-radius:4px;">Unavailable</span>
+          `}
         </div>
       `;
 
-      row.querySelector('.btn-load-a').addEventListener('click', async () => {
-        await this.engine.init();
-        this.deckManager.loadTrack('A', track, true);
-        this.deckManager.setCrossfade(0);
-        this.crossfadeSlider.value = '0';
-      });
+      if (track.isPlayable) {
+        row.querySelector('.btn-load-a')?.addEventListener('click', async () => {
+          await this.engine.init();
+          this.deckManager.loadTrack('A', track, true);
+          this.deckManager.setCrossfade(0);
+          this.crossfadeSlider.value = '0';
+        });
 
-      row.querySelector('.btn-load-b').addEventListener('click', async () => {
-        await this.engine.init();
-        this.deckManager.loadTrack('B', track, true);
-        this.deckManager.setCrossfade(1);
-        this.crossfadeSlider.value = '1';
-      });
+        row.querySelector('.btn-load-b')?.addEventListener('click', async () => {
+          await this.engine.init();
+          this.deckManager.loadTrack('B', track, true);
+          this.deckManager.setCrossfade(1);
+          this.crossfadeSlider.value = '1';
+        });
 
-      row.querySelector('.btn-add-q').addEventListener('click', () => {
-        this.deckManager.addToQueue(track);
-        alert(`Added "${track.title}" to play queue!`);
-      });
+        row.querySelector('.btn-add-q')?.addEventListener('click', () => {
+          this.deckManager.addToQueue(track);
+          alert(`Added "${track.title}" to play queue!`);
+        });
+      }
 
       this.trackResultsContainer.appendChild(row);
     });

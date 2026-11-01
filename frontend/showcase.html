@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarang - AI Video Showcase & Overview</title>
+  <meta name="description" content="Watch the cinematic AI video overview of Tarang: India's hyperlocal creator radio platform, analog tuner, Jamendo music, and Radio Browser integration.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #07070a;
+      background-image: 
+        radial-gradient(ellipse 85% 55% at 50% -12%, rgba(255, 102, 0, 0.2), transparent 70%),
+        radial-gradient(circle 650px at 92% 12%, rgba(245, 158, 11, 0.1), transparent 60%),
+        radial-gradient(circle 550px at 8% 45%, rgba(16, 185, 129, 0.08), transparent 50%);
+      color: #ffffff;
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+
+    .showcase-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 24px 28px 80px 28px;
+    }
+
+    .showcase-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .btn-back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #cbd5e1;
+      padding: 9px 18px;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 700;
+      transition: all 0.22s ease;
+    }
+
+    .btn-back-home:hover {
+      background: var(--accent-orange);
+      color: #000;
+      border-color: var(--accent-orange);
+      box-shadow: 0 4px 18px rgba(255, 102, 0, 0.4);
+    }
+
+    .video-hero-banner {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .video-hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--accent-orange-bright);
+      background: rgba(255, 102, 0, 0.12);
+      border: 1px solid rgba(255, 102, 0, 0.35);
+      padding: 5px 16px;
+      border-radius: 9999px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      box-shadow: 0 0 18px rgba(255, 102, 0, 0.2);
+    }
+
+    .video-hero-title {
+      font-size: clamp(34px, 4.5vw, 52px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .video-hero-sub {
+      font-size: 1.05rem;
+      color: #94a3b8;
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.55;
+    }
+
+    /* Video Player Theater Wrapper */
+    .video-theater-card {
+      background: linear-gradient(180deg, #13131c 0%, #0a0a0f 100%);
+      border: 1px solid rgba(255, 102, 0, 0.3);
+      border-radius: 24px;
+      padding: 16px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 40px rgba(255, 102, 0, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .video-aspect-box {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .video-aspect-box video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Video Toolbar & Scene Jump Pills */
+    .video-controls-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 8px 6px 8px;
+      flex-wrap: wrap;
+    }
+
+    .scene-jump-pills {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .scene-pill-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      color: #cbd5e1;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .scene-pill-btn:hover {
+      background: rgba(255, 102, 0, 0.15);
+      border-color: rgba(255, 102, 0, 0.4);
+      color: #ffffff;
+    }
+
+    .scene-pill-btn.active {
+      background: linear-gradient(135deg, #ff6600, #ff851a);
+      color: #000;
+      border-color: #ff851a;
+      box-shadow: 0 2px 12px rgba(255, 102, 0, 0.4);
+    }
+
+    .video-actions-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-download-video {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #000000;
+      font-size: 0.88rem;
+      font-weight: 800;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);
+    }
+
+    .btn-download-video:hover {
+      filter: brightness(1.15);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(16, 185, 129, 0.55);
+    }
+
+    /* Video Features Highlight Grid */
+    .features-highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .feature-summary-card {
+      background: rgba(18, 18, 26, 0.8);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: all 0.25s ease;
+    }
+
+    .feature-summary-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 102, 0, 0.4);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 102, 0, 0.15);
+    }
+
+    .feature-card-icon {
+      font-size: 2rem;
+      margin-bottom: 2px;
+    }
+
+    .feature-card-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-card-desc {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      line-height: 1.55;
+    }
+  </style>
+</head>
+<body>
+  <div class="showcase-container">
+    
+    <!-- Top Header -->
+    <header class="showcase-header">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-wave-icon">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 16C4 16 7 8 10 8C13 8 14 24 17 24C20 24 21 12 24 12C27 12 28 16 28 16" stroke="url(#paint0_linear)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="paint0_linear" x1="4" y1="8" x2="28" y2="24" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FFA826"/>
+                <stop offset="0.5" stop-color="#FF6600"/>
+                <stop offset="1" stop-color="#E54600"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="brand-name">tarang</span>
+      </a>
+
+      <div style="display:flex;align-items:center;gap:12px;">
+        <a href="index.html" class="btn-back-home">
+          <span>📻 Launch Live Radio App</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Video Hero Copy -->
+    <section class="video-hero-banner">
+      <div class="video-hero-tag">
+        <span>🎬 AI VIDEO PRESENTATION WITH VOICE</span>
+      </div>
+      <h1 class="video-hero-title">Experience <span class="text-gradient">Tarang Radio</span> in Action</h1>
+      <p class="video-hero-sub">Watch our full 1-minute AI-narrated video overview exploring the precision city frequency tuner, 100+ live Indian stations, Creative Commons music, and creator studio.</p>
+    </section>
+
+    <!-- Video Player Theater Card -->
+    <section class="video-theater-card">
+      <div class="video-aspect-box">
+        <video id="showcase-video" controls autoplay playsinline preload="auto" poster="city_radio_view_1793092974261.png">
+          <source src="/tarang_ai_project_overview.mp4" type="video/mp4">
+          Your browser does not support HTML5 MP4 video.
+        </video>
+      </div>
+
+      <!-- Controls & Chapter Markers -->
+      <div class="video-controls-toolbar">
+        <div class="scene-jump-pills">
+          <span style="font-size:0.75rem;font-weight:800;color:#71717a;text-transform:uppercase;letter-spacing:0.06em;margin-right:4px;">Chapters:</span>
+          <button class="scene-pill-btn active" data-time="0">01 Vision (0:00)</button>
+          <button class="scene-pill-btn" data-time="10">02 City Tuner (0:10)</button>
+          <button class="scene-pill-btn" data-time="21">03 Indian Directory (0:21)</button>
+          <button class="scene-pill-btn" data-time="33">04 Jamendo Music (0:33)</button>
+          <button class="scene-pill-btn" data-time="45">05 Creator Studio (0:45)</button>
+          <button class="scene-pill-btn" data-time="56">06 Summary (0:56)</button>
+        </div>
+
+        <div class="video-actions-right">
+          <a href="/tarang_ai_project_overview.mp4" download="tarang_ai_project_overview.mp4" class="btn-download-video" title="Download standalone 1080p MP4 video">
+            <span>📥 Download Video (MP4)</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Highlight Grid -->
+    <section class="features-highlight-grid">
+      <div class="feature-summary-card">
+        <span class="feature-card-icon">📻</span>
+        <h3 class="feature-card-title">Hyperlocal City Radio</h3>
+        <p class="feature-card-desc">Bengaluru, Mumbai, Delhi, Kolkata, Chennai, Hyderabad, Pune, Kochi, and Goa. Local RJs, banter, and local music with zero signal loss.</p>
+      </div>
+
+      <div class="feature-summary-card">
+        <span class="feature-card-icon">🎛️</span>
+        <h3 class="feature-card-title">Illuminated FM Tuner</h3>
+        <p class="feature-card-desc">Authentic retro-modern 88.0 to 108.0 MHz analog dial with glowing laser needle, digital frequency readout, and tactile city hub tiles.</p>
+      </div>
+
+      <div class="feature-summary-card">
+        <span class="feature-card-icon">📡</span>
+        <h3 class="feature-card-title">Radio Browser Integration</h3>
+        <p class="feature-card-desc">100+ live Indian community streams indexed via public mirrors with state-level region filters, language search, and transparent third-party attribution.</p>
+      </div>
+
+      <div class="feature-summary-card">
+        <span class="feature-card-icon">🎵</span>
+        <h3 class="feature-card-title">Jamendo Creative Commons</h3>
+        <p class="feature-card-desc">Automated CC license verification via Jamendo API v3.0 ensuring legal demo streaming with royalty-free music and direct artist attribution.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    const video = document.getElementById('showcase-video');
+    const chapterButtons = document.querySelectorAll('.scene-pill-btn');
+
+    chapterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        chapterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const targetTime = parseFloat(btn.dataset.time);
+        video.currentTime = targetTime;
+        video.play();
+      });
+    });
+
+    video.addEventListener('timeupdate', () => {
+      const cur = video.currentTime;
+      let activeIdx = 0;
+      const times = [0, 10, 21, 33, 45, 56];
+      for (let i = times.length - 1; i >= 0; i--) {
+        if (cur >= times[i]) {
+          activeIdx = i;
+          break;
+        }
+      }
+      chapterButtons.forEach((b, idx) => {
+        b.classList.toggle('active', idx === activeIdx);
+      });
+    });
+  </script>
+</body>
+</html>

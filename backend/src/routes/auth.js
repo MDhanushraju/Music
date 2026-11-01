@@ -29,7 +29,8 @@ export function createAuthRouter() {
       return res.status(400).json({ success: false, message: 'Phone and code are required' });
     }
 
-    const isValid = code === '123456' || process.env.NODE_ENV === 'development' || code.length === 6;
+    const isDev = (process.env.NODE_ENV || 'development') === 'development';
+    const isValid = (isDev && code === '123456') || (process.env.OTP_BYPASS_CODE && code === process.env.OTP_BYPASS_CODE);
 
     if (isValid) {
       try {

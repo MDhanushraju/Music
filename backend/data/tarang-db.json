@@ -67,6 +67,23 @@
   ],
   "channels": [
     {
+      "id": "custom-1793077883605",
+      "cityId": "bengaluru",
+      "slug": "the-indie-express-with-rj",
+      "title": "The Indie Express with RJ",
+      "rj": "RJ Alwin",
+      "lang": "English & Hindi",
+      "tags": [
+        "Talk",
+        "Live On Air"
+      ],
+      "listeners": 119,
+      "isLive": true,
+      "gradient": "linear-gradient(135deg, #ff2d70, #7928ca)",
+      "talkScript": "Welcome to The Indie Express with RJ on Tarang Bengaluru! RJ RJ Alwin is live right now!",
+      "ownerId": null
+    },
+    {
       "id": "custom-1792989278420",
       "cityId": "bengaluru",
       "slug": "prod-radio-launch",
@@ -77,7 +94,7 @@
         "Indie",
         "Live On Air"
       ],
-      "listeners": 51,
+      "listeners": 103,
       "isLive": true,
       "gradient": "linear-gradient(135deg, #ff2d70, #7928ca)",
       "talkScript": "Welcome to Prod Radio Launch on Tarang Bengaluru! RJ RJ Alwin is live right now!",
@@ -95,7 +112,7 @@
         "Indie",
         "Morning Show"
       ],
-      "listeners": 1340,
+      "listeners": 1323,
       "isLive": true,
       "gradient": "linear-gradient(135deg, #ff6600, #993300)",
       "talkScript": "Good morning Bengaluru! This is RJ Kavya on Tarang Namma Morning 91.1. Grab your piping hot filter coffee, traffic on Outer Ring Road is moving slow as usual, but we've got some lovely indie Kannada vibes lined up for you!"
@@ -111,8 +128,8 @@
         "Talk",
         "Late Night"
       ],
-      "listeners": 888,
-      "isLive": true,
+      "listeners": 802,
+      "isLive": false,
       "gradient": "linear-gradient(135deg, #1f1f26, #ff7a1a)",
       "talkScript": "What's up techies and night owls! You're tuned into Koramangala Chai & Code on Tarang. Debugging past midnight? Sit back, take a breath, let these lo-fi beats keep your sanity intact."
     },
@@ -127,8 +144,8 @@
         "Indie",
         "Music"
       ],
-      "listeners": 1119,
-      "isLive": true,
+      "listeners": 1070,
+      "isLive": false,
       "gradient": "linear-gradient(135deg, #ffa826, #d94d00)",
       "talkScript": "Hey music lovers! Welcome to Indiranagar Indie Wave on Tarang 91.1. We are highlighting fresh grassroots singer-songwriters from across Karnataka today."
     },
@@ -161,7 +178,7 @@
         "Talk"
       ],
       "listeners": 2150,
-      "isLive": true,
+      "isLive": false,
       "gradient": "linear-gradient(135deg, #18181f, #ff6600)",
       "talkScript": "Shubh raatri Mumbai. You are listening to RJ Tara on Tarang. Sit by the sea breeze, let go of the hectic city rush, and share your untold stories with us."
     },
@@ -177,7 +194,7 @@
         "Indie"
       ],
       "listeners": 1450,
-      "isLive": true,
+      "isLive": false,
       "gradient": "linear-gradient(135deg, #ff9900, #cc4400)",
       "talkScript": "Representing Mumbai street sounds on Tarang! Fresh underground hip-hop, boom bap, and desi flows right to your headphones!"
     },
@@ -210,7 +227,7 @@
         "Music"
       ],
       "listeners": 1780,
-      "isLive": true,
+      "isLive": false,
       "gradient": "linear-gradient(135deg, #ff851a, #201a14)",
       "talkScript": "Good evening Delhi! Tuning into Hauz Khas Indie Sunset on Tarang. Independent music from university campuses and garage bands across the capital."
     },
@@ -243,7 +260,7 @@
         "Music"
       ],
       "listeners": 1410,
-      "isLive": true,
+      "isLive": false,
       "gradient": "linear-gradient(135deg, #ff6600, #17171e)",
       "talkScript": "Vanakkam! Tune into Marina Coastal Rhythms on Tarang. Blending traditional Carnatic notes with contemporary acoustic indie grooves."
     },
@@ -277,6 +294,8 @@
       "listeners": 1540,
       "isLive": true,
       "gradient": "linear-gradient(135deg, #f97316, #7c2d12)",
+      "audioUrl": "/audio/hyderabad-biryani-bass.mp3",
+      "nowPlayingSong": "Biryani & Bass - Tollywood Club Groove",
       "talkScript": "Kaiku re bhai, kaisa chal raha din? RJ Farah with you on Tarang Hyderabad 92.7! Piping hot Irani chai, Osmania biscuits and non-stop music!"
     },
     {
@@ -291,7 +310,7 @@
         "Talk"
       ],
       "listeners": 1210,
-      "isLive": true,
+      "isLive": false,
       "gradient": "linear-gradient(135deg, #ea580c, #431407)",
       "talkScript": "Namaskaram Kochi! Tuning into Backwater Bulletin on Tarang 94.3. Monsoon breezes, lakeside tunes, and the best indie Malayalam tracks."
     },
@@ -308,7 +327,7 @@
         "Late Night"
       ],
       "listeners": 1820,
-      "isLive": true,
+      "isLive": false,
       "gradient": "linear-gradient(135deg, #ff7a1a, #991b1b)",
       "talkScript": "Peace and love from sunny Goa! RJ Leo on Tarang Goa 92.7. Golden hour by the ocean, acoustic guitars, and laid-back coastal vibrations."
     }
@@ -343,6 +362,29 @@
       "lastLoginAt": "2026-10-26T04:44:16.474Z",
       "lastLogoutAt": "2026-10-26T04:45:43.503Z",
       "createdAt": "2026-10-26T04:44:16.474Z"
+    },
+    {
+      "id": "usr_76543210",
+      "name": "Alwin Joseph",
+      "phone": "+919876543210",
+      "role": "creator",
+      "avatar": "AL",
+      "bio": "Creator & Audiophile",
+      "homeCity": "Bengaluru",
+      "settings": {
+        "bitrate": "320",
+        "staticBurst": true,
+        "autoDucking": true,
+        "visualizer": true,
+        "liveAlerts": true,
+        "floatingReactions": true,
+        "homeCity": "bengaluru"
+      },
+      "listeningHours": 48,
+      "isOnline": true,
+      "lastLoginAt": "2026-10-27T11:49:45.945Z",
+      "lastLogoutAt": null,
+      "createdAt": "2026-10-27T11:49:45.945Z"
     }
   ],
   "subscriptions": [
@@ -352,6 +394,14 @@
       "createdAt": "2026-10-26T04:45:14.926Z"
     }
   ],
-  "broadcasts": [],
+  "broadcasts": [
+    {
+      "broadcastId": "bcast-1793101956967",
+      "channelId": "blr-koramangala-code",
+      "startedAt": "2026-10-27T11:52:36.967Z",
+      "livekitRoom": "tarang-blr-koramangala-code",
+      "publishToken": "demo_token_1793101956967"
+    }
+  ],
   "nowPlaying": {}
 }

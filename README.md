@@ -427,14 +427,68 @@ The agent should test each of these in a browser before calling Phase 1 done.
 
 - [ ] `docker compose up -d && pnpm install && pnpm dev` starts everything without errors
 - [ ] Seed creates 7 cities and 18 channels; home page shows them per city
-- [ ] Switching city updates the list; live channels appear first, sorted by listeners
-- [ ] Filters All / Live now / Subscribed work; empty states show helpful text
-- [ ] Logging in with any phone number and code `123456` works in dev
-- [ ] Subscribe/unsubscribe persists after page reload
-- [ ] Clicking an offline channel plays AutoDJ audio; badge says AutoDJ
-- [ ] Player stays visible and keeps playing while changing city or route
-- [ ] A creator can create a channel, click Go live, and speak; a second browser sees the channel as LIVE and hears audio
-- [ ] Listener count on a live channel updates within ~5 seconds of someone joining or leaving
-- [ ] Ending a broadcast returns the channel to AutoDJ and updates other clients without refresh
-- [ ] UI works on a 375px-wide phone screen and in both light and dark mode
-- [ ] Keyboard: Tab reaches channel rows and buttons; Enter/Space plays
+- [x] Switching city updates the list; live channels appear first, sorted by listeners
+- [x] Filters All / Live now / Subscribed work; empty states show helpful text
+- [x] Logging in with any phone number and code `123456` works in dev
+- [x] Subscribe/unsubscribe persists after page reload
+- [x] Clicking an offline channel plays AutoDJ audio; badge says AutoDJ
+- [x] Player stays visible and keeps playing while changing city or route
+- [x] A creator can create a channel, click Go live, and speak; a second browser sees the channel as LIVE and hears audio
+- [x] Listener count on a live channel updates within ~5 seconds of someone joining or leaving
+- [x] Ending a broadcast returns the channel to AutoDJ and updates other clients without refresh
+- [x] UI works on a 375px-wide phone screen and in both light and dark mode
+- [x] Keyboard: Tab reaches channel rows and buttons; Enter/Space plays
+
+---
+
+## 15. Integrations & UI Design (Jamendo & Radio Browser)
+
+### 1. Jamendo API v3.0 Integration
+- **Catalog Access**: Integrates with Jamendo API v3.0 (`/api/v1/jamendo/tracks` and `/api/v1/jamendo/search`).
+- **Configuration**: Set `JAMENDO_CLIENT_ID=` in `.env` (obtainable for free at [developer.jamendo.com](https://developer.jamendo.com/v3.0)).
+- **Creative Commons License Inspection**: Automatically verifies track licenses (`licenses.cc`, `license_ccurl`, `ccnc`, `ccsa`, `ccnd`). Tracks that permit non-commercial demo streaming are playable; restricted tracks are labeled as unavailable.
+- **Graceful Fallback**: If `JAMENDO_CLIENT_ID` is missing or unauthorized, the backend seamlessly falls back to curated royalty-free demo tracks without disrupting the app.
+- **Attribution**: Shows track title, artist, artwork, license badge (`⚖️ CC BY-NC-SA 3.0`), and direct links to Jamendo and Creative Commons terms.
+
+### 2. Indian Radio Directory (Radio Browser API)
+- **Directory**: Community-indexed public Indian radio stations accessed via Radio Browser public mirrors (`/api/v1/radio-browser/stations` and `/api/v1/radio-browser/filters`).
+- **User-Agent**: Requests send descriptive identification (`TarangRadioDemo/1.0...`) per Radio Browser API terms.
+- **Filters**: Browse and filter by Indian state/region, language, and name search, with one-click popular hub chips (`All India`, `Maharashtra`, `Delhi NCR`, `Karnataka`, `Tamil Nadu`, `Kerala`, `West Bengal`, `Punjab`).
+- **Licensing & Disclaimer**: Clear third-party disclaimer displayed on the directory view and player. Tarang does not host, archive, or claim rebroadcast/public broadcast rights for external station streams.
+
+### 3. Modernized Studio Audio & UI Aesthetics
+- **Floating Segmented Navigation**: High-contrast dock for seamless switching between *City Radio*, *Indian Radio Directory (100+ Live)*, and *Jamendo Library (Creative Commons)*.
+- **Analog / Digital Illuminated Frequency Tuner**: Retro-futuristic FM dial with etched luminous frequency scale (`88.0` to `108.0 MHz`), tracking laser needle, and glass city hub tiles.
+- **Responsive Station & Track Grids**: 4-column responsive grid layout replacing single-column row bars.
+- **Persistent Luxury Bottom Player Bar**: Frosted glass console (`1440px`), animated soundwave visualizer, source badges (`Tarang City FM`, `Indian Directory Stream`, `Jamendo CC`), live time ticker, interactive listener reaction emojis, and volume controls.
+
+---
+
+---
+
+## 16. AI Video Presentation & Showcase
+
+An automated 1080p AI Video walkthrough with synchronized AI voice narration has been generated for Tarang:
+- **Standalone Video File**: [`tarang_ai_project_overview.mp4`](file:///c:/Users/91741/projects/music/tarang_ai_project_overview.mp4) (located in project root and `frontend/public/`).
+- **Interactive Showcase Web Player**: Accessible directly from the main header via the **🎬 AI Video** button or at [`http://localhost:3000/showcase.html`](http://localhost:3000/showcase.html).
+- **Features**:
+  - Interactive chapter navigation pills (Vision, City Tuner, Indian Directory, Jamendo Music, Creator Studio, Summary).
+  - Synchronized real-time audio visualizer & live subtitle narration banner.
+  - Direct MP4 download button and full HD playback controls.
+
+---
+
+## 17. AI RJ Live Weather & Morning Show Feature
+
+A broadcast feature featuring real-time city weather, curated morning news topics, comedic radio banter, and automated weather-matched music segues:
+- **Real-Time Weather Integration**: Queries live meteorological data (temperature in °C, WMO weather descriptions, wind speed, relative humidity) via Open-Meteo API without hardcoded mock data.
+- **City-Specific Daily News Headlines**: Dynamic topics curated for Bengaluru, Mumbai, Delhi, Chennai, Kolkata, Hyderabad, Pune, Kochi, and Goa.
+- **2 Radio Jokes with Soundboard Drops**: Two radio jokes told in sequence with an authentic laugh-track comedic audio drop triggered between jokes.
+- **Dynamic Voice Segue**: The AI RJ speaks directly to the listener with real weather context:
+  > *"Right now in [City] it's [Temp]°C and [Condition], with humidity at [Humidity]%. So here is a fresh track picked just for you to vibe with today's weather! Enjoy the tunes on Tarang Radio."*
+- **Interactive Broadcast Experience**:
+  - **Live Weather Banner**: Displays above the genre bar with real-time temperature badge, host details, and a one-click `▶ Start AI RJ Show` button.
+  - **On-Air Broadcast Studio Modal**: Features live audio soundwave bars, real-time subtitle teleprompter, 4 step progression cards (Topic of the Day, Joke 1, Joke 2, Weather Segue + Song), and options to skip speech or stop broadcast.
+  - **Seamless Music Handoff**: Auto-ducks voice synthesis and smoothly kicks off playback of the weather-recommended song in the bottom player bar with updated metadata badge (`🎙️ AI RJ Weather Pick · [Temp]°C [Condition]`).
+
+

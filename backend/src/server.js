@@ -12,6 +12,9 @@ import { getDbStatus, getPool } from './db/pool.js';
 import { createCitiesRouter } from './routes/cities.js';
 import { createChannelsRouter } from './routes/channels.js';
 import { createAuthRouter } from './routes/auth.js';
+import { createJamendoRouter } from './routes/jamendo.js';
+import { createRadioBrowserRouter } from './routes/radioBrowser.js';
+import { createAiRjRouter } from './routes/aiRj.js';
 
 dotenv.config();
 
@@ -85,6 +88,21 @@ setInterval(async () => {
 app.use('/api/v1/cities', createCitiesRouter());
 app.use('/api/v1/channels', createChannelsRouter({ broadcastWsEvent }));
 app.use('/api/v1/auth', createAuthRouter());
+app.use('/api/v1/jamendo', createJamendoRouter());
+app.use('/api/v1/radio-browser', createRadioBrowserRouter());
+app.use('/api/v1/ai-rj', createAiRjRouter());
+
+// README Route Alias: POST /api/v1/broadcasts/:id/end
+app.post('/api/v1/broadcasts/:id/end', async (req, res) => {
+  try {
+    const channelId = req.params.id;
+    await dbRepository.endBroadcast(channelId);
+    broadcastWsEvent('channel:offline', { channelId, isLive: false });
+    res.json({ success: true, message: 'Broadcast ended' });
+  } catch (err) {
+    res.status(500).json({ success: false, message: 'Failed to end broadcast' });
+  }
+});
 
 // Production Health & Status Endpoint
 app.get('/api/v1/health', async (req, res) => {

@@ -210,63 +210,75 @@ export class MusicDeckManager extends EventTarget {
     this.setCrossfade(targetDeck === 'A' ? 0 : 1);
   }
 
-  /* ------------------- Audius Music API Integration ------------------- */
+  /* ------------------- Jamendo Music API Integration ------------------- */
 
-  async searchAudiusTracks(query, genre = '') {
+  async searchJamendoTracks(query, genre = '') {
     try {
-      let url = `https://api.audius.co/v1/tracks/search?query=${encodeURIComponent(query)}&app_name=TARANG`;
+      let url = `/api/v1/jamendo/search?q=${encodeURIComponent(query)}&limit=25`;
       if (genre && genre !== 'All') {
-        url += `&genre=${encodeURIComponent(genre)}`;
+        url += `&tag=${encodeURIComponent(genre)}`;
       }
       const res = await fetch(url);
-      if (!res.ok) throw new Error(`Audius API error status ${res.status}`);
+      if (!res.ok) throw new Error(`Jamendo API status ${res.status}`);
       const data = await res.json();
-      const rawTracks = data.data || [];
-      return rawTracks
-        .filter(t => t.is_streamable !== false)
-        .map(t => ({
-          id: t.id,
-          title: t.title,
-          artist: t.user?.name || 'Unknown Artist',
-          artwork: t.artwork?.['150x150'] || t.artwork?.['480x480'] || '',
-          duration: t.duration || 0,
-          genre: t.genre || 'Indie',
-          source: 'audius',
-          streamUrl: `https://api.audius.co/v1/tracks/${t.id}/stream?app_name=TARANG`
-        }));
+      const rawTracks = data.results || [];
+      return rawTracks.map(t => ({
+        id: t.id,
+        title: t.title,
+        artist: t.artist,
+        artwork: t.artwork || 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=150',
+        duration: t.duration || 0,
+        genre: t.genre || 'Indie',
+        source: 'jamendo',
+        streamUrl: t.audio,
+        audioUrl: t.audio,
+        shareurl: t.shareurl || 'https://www.jamendo.com',
+        licenseName: t.licenseName || 'Creative Commons',
+        license_ccurl: t.license_ccurl || 'https://creativecommons.org/',
+        isPlayable: t.isPlayable !== false && !!t.audio,
+        licenseStatus: t.licenseStatus || 'Creative Commons'
+      }));
     } catch (err) {
-      console.warn('Audius search error, using curated backup:', err);
+      console.warn('Jamendo search error, using curated backup:', err);
       return this.getCuratedBackups().filter(t => 
         !query || t.title.toLowerCase().includes(query.toLowerCase()) || t.artist.toLowerCase().includes(query.toLowerCase())
       );
     }
   }
 
+  // Backward-compatible alias
+  async searchAudiusTracks(query, genre = '') {
+    return this.searchJamendoTracks(query, genre);
+  }
+
   async fetchTrendingTracks(genre = '') {
     try {
-      let url = 'https://api.audius.co/v1/tracks/trending?app_name=TARANG&time=week&limit=20';
+      let url = '/api/v1/jamendo/tracks?limit=25';
       if (genre && genre !== 'All') {
-        url += `&genre=${encodeURIComponent(genre)}`;
+        url += `&tag=${encodeURIComponent(genre)}`;
       }
       const res = await fetch(url);
-      if (!res.ok) throw new Error(`Trending fetch error status ${res.status}`);
+      if (!res.ok) throw new Error(`Jamendo tracks status ${res.status}`);
       const data = await res.json();
-      const rawTracks = data.data || [];
-      const formatted = rawTracks
-        .filter(t => t.is_streamable !== false)
-        .map(t => ({
-          id: t.id,
-          title: t.title,
-          artist: t.user?.name || 'Unknown Artist',
-          artwork: t.artwork?.['150x150'] || t.artwork?.['480x480'] || '',
-          duration: t.duration || 0,
-          genre: t.genre || 'Indie',
-          source: 'audius',
-          streamUrl: `https://api.audius.co/v1/tracks/${t.id}/stream?app_name=TARANG`
-        }));
-      return formatted.length > 0 ? formatted : this.getCuratedBackups();
+      const rawTracks = data.results || [];
+      return rawTracks.map(t => ({
+        id: t.id,
+        title: t.title,
+        artist: t.artist,
+        artwork: t.artwork || 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=150',
+        duration: t.duration || 0,
+        genre: t.genre || 'Indie',
+        source: 'jamendo',
+        streamUrl: t.audio,
+        audioUrl: t.audio,
+        shareurl: t.shareurl || 'https://www.jamendo.com',
+        licenseName: t.licenseName || 'Creative Commons',
+        license_ccurl: t.license_ccurl || 'https://creativecommons.org/',
+        isPlayable: t.isPlayable !== false && !!t.audio,
+        licenseStatus: t.licenseStatus || 'Creative Commons'
+      }));
     } catch (err) {
-      console.warn('Audius trending error, falling back to curated list:', err);
+      console.warn('Jamendo trending error, falling back to curated list:', err);
       return this.getCuratedBackups();
     }
   }

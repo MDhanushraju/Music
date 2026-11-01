@@ -1,5 +1,6 @@
 import express from 'express';
 import { dbRepository } from '../db/repository.js';
+import { generateLiveKitToken } from '../utils/livekit.js';
 
 export function createChannelsRouter({ broadcastWsEvent }) {
   const router = express.Router();
@@ -54,21 +55,53 @@ export function createChannelsRouter({ broadcastWsEvent }) {
   // POST /api/v1/channels/:id/broadcasts - Go live flow
   router.post('/:id/broadcasts', async (req, res) => {
     try {
-      const channel = await dbRepository.getChannelById(req.params.id);
+      let channel = await dbRepository.getChannelById(req.params.id);
       if (!channel) {
-        return res.status(404).json({ success: false, message: 'Channel not found' });
+        const title = req.body?.title || 'Live Studio Broadcast';
+        const rj = req.body?.rj || 'RJ Creator';
+        const cityName = req.body?.city || req.body?.cityName || 'Bengaluru';
+        const genre = req.body?.genre || 'Talk';
+        const lang = req.body?.lang || 'English & Hindi';
+        channel = await dbRepository.createChannel({
+          title,
+          rj,
+          cityName,
+          genre,
+          lang
+        });
       }
 
       const broadcast = await dbRepository.startBroadcast(channel.id);
+      const livekit = generateLiveKitToken({
+        identity: req.headers['x-user-id'] || `creator_${channel.id}`,
+        name: channel.rj || 'Creator',
+        roomName: `channel_${channel.id}`,
+        canPublish: true,
+        canSubscribe: true
+      });
 
       broadcastWsEvent('channel:live', {
         channelId: channel.id,
         name: channel.title,
-        city: channel.cityId,
-        broadcast
+        city: channel.cityId || channel.city?.id || 'bengaluru',
+        isLive: true,
+        channel: { ...channel, isLive: true },
+        broadcast: {
+          broadcastId: broadcast.broadcastId || broadcast.id,
+          livekitUrl: livekit.livekitUrl,
+          room: livekit.room
+        }
       });
 
-      res.json({ success: true, data: broadcast });
+      res.json({
+        success: true,
+        data: {
+          broadcastId: broadcast.broadcastId || broadcast.id,
+          livekitUrl: livekit.livekitUrl,
+          publishToken: livekit.token,
+          room: livekit.room
+        }
+      });
     } catch (err) {
       console.error('Error starting broadcast:', err);
       res.status(500).json({ success: false, message: 'Failed to start broadcast' });
@@ -85,7 +118,12 @@ export function createChannelsRouter({ broadcastWsEvent }) {
 
       await dbRepository.endBroadcast(channel.id);
 
-      broadcastWsEvent('channel:offline', { channelId: channel.id });
+      broadcastWsEvent('channel:offline', {
+        channelId: channel.id,
+        name: channel.title,
+        city: channel.cityId,
+        isLive: false
+      });
       res.json({ success: true, data: { ...channel, isLive: false, nowPlaying: null } });
     } catch (err) {
       console.error('Error ending broadcast:', err);
@@ -138,16 +176,29 @@ export function createChannelsRouter({ broadcastWsEvent }) {
         count: listeners
       });
 
+      let livekit = null;
+      if (channel.isLive) {
+        livekit = generateLiveKitToken({
+          identity: req.headers['x-user-id'] || `listener_${Date.now()}`,
+          roomName: `channel_${channel.id}`,
+          canPublish: false,
+          canSubscribe: true
+        });
+      }
+
       res.json({
         success: true,
         data: {
           mode: channel.isLive ? 'live' : 'autodj',
           channelId: channel.id,
           listeners,
+          livekitUrl: livekit ? livekit.livekitUrl : null,
+          subscribeToken: livekit ? livekit.token : null,
+          audioUrl: channel.audioUrl || '/audio/hyderabad-biryani-bass.mp3',
           nowPlaying: channel.nowPlaying || {
-            title: channel.title,
+            title: channel.nowPlayingSong || channel.title,
             rj: channel.rj,
-            type: 'live_stream'
+            type: channel.isLive ? 'live_stream' : 'autodj'
           }
         }
       });

@@ -19,6 +19,8 @@ const CITIES_DATA = [
         listeners: 1342,
         isLive: true,
         gradient: 'linear-gradient(135deg, #ff6600, #993300)',
+        audioUrl: '/audio/bengaluru-namma-morning.mp3',
+        nowPlayingSong: 'Filter Coffee Morning - Acoustic Strings',
         talkScript: "Good morning Bengaluru! This is RJ Kavya on Tarang Namma Morning 91.1. Grab your piping hot filter coffee, traffic on Outer Ring Road is moving slow as usual, but we've got some lovely indie Kannada vibes lined up for you!"
       },
       {
@@ -28,8 +30,10 @@ const CITIES_DATA = [
         lang: 'English & Hindi banter',
         tags: ['Talk', 'Late Night'],
         listeners: 890,
-        isLive: true,
+        isLive: false,
         gradient: 'linear-gradient(135deg, #1f1f26, #ff7a1a)',
+        audioUrl: '/audio/bengaluru-chai-code.mp3',
+        nowPlayingSong: 'Midnight Terminal - Chai & Code Lo-Fi',
         talkScript: "What's up techies and night owls! You're tuned into Koramangala Chai & Code on Tarang. Debugging past midnight? Sit back, take a breath, let these lo-fi beats keep your sanity intact."
       },
       {
@@ -39,8 +43,10 @@ const CITIES_DATA = [
         lang: 'Kannada Indie & Folk',
         tags: ['Indie', 'Music'],
         listeners: 1120,
-        isLive: true,
+        isLive: false,
         gradient: 'linear-gradient(135deg, #ffa826, #d94d00)',
+        audioUrl: '/audio/bengaluru-namma-morning.mp3',
+        nowPlayingSong: 'Mysore Road Acoustic - Indie Waves',
         talkScript: "Hey music lovers! Welcome to Indiranagar Indie Wave on Tarang 91.1. We are highlighting fresh grassroots singer-songwriters from across Karnataka today."
       }
     ]
@@ -59,6 +65,8 @@ const CITIES_DATA = [
         listeners: 3215,
         isLive: true,
         gradient: 'linear-gradient(135deg, #ff4d00, #7a1f00)',
+        audioUrl: '/audio/mumbai-meri-jaan.mp3',
+        nowPlayingSong: 'Aamchi Mumbai - Retro Bollywood Beat',
         talkScript: "Aamchi Mumbai! This is RJ Rohit on Tarang Mumbai 98.3. Local train updates: Western line running on time, weather is pleasant at Marine Drive. Ready for some retro Bollywood magic?"
       },
       {
@@ -68,8 +76,10 @@ const CITIES_DATA = [
         lang: 'Hindi & Urdu poetry',
         tags: ['Late Night', 'Talk'],
         listeners: 2150,
-        isLive: true,
+        isLive: false,
         gradient: 'linear-gradient(135deg, #18181f, #ff6600)',
+        audioUrl: '/audio/mumbai-marine-confessions.mp3',
+        nowPlayingSong: 'Marine Drive Waves - Night Lo-Fi',
         talkScript: "Shubh raatri Mumbai. You are listening to RJ Tara on Tarang. Sit by the sea breeze, let go of the hectic city rush, and share your untold stories with us."
       },
       {
@@ -79,8 +89,10 @@ const CITIES_DATA = [
         lang: 'Hindi & Marathi rap',
         tags: ['Music', 'Indie'],
         listeners: 1450,
-        isLive: true,
+        isLive: false,
         gradient: 'linear-gradient(135deg, #ff9900, #cc4400)',
+        audioUrl: '/audio/mumbai-gully-beats.mp3',
+        nowPlayingSong: 'Dharavi Cypher - Underground Flow',
         talkScript: "Representing Mumbai street sounds on Tarang! Fresh underground hip-hop, boom bap, and desi flows right to your headphones!"
       }
     ]
@@ -99,6 +111,8 @@ const CITIES_DATA = [
         listeners: 2840,
         isLive: true,
         gradient: 'linear-gradient(135deg, #ea580c, #9a3412)',
+        audioUrl: '/audio/delhi-dilli6-gupshup.mp3',
+        nowPlayingSong: 'Chandni Chowk Raga Beat - Desi Groove',
         talkScript: "Haan ji Dilli walon! RJ Nitin hazir hai Tarang Delhi 104.0 par. CP ki thand, Chandni Chowk ki jalebi aur humara live gupshup show! Bhejo apne shoutouts!"
       },
       {
@@ -108,8 +122,10 @@ const CITIES_DATA = [
         lang: 'English & Hindi Indie',
         tags: ['Indie', 'Music'],
         listeners: 1780,
-        isLive: true,
+        isLive: false,
         gradient: 'linear-gradient(135deg, #ff851a, #201a14)',
+        audioUrl: '/audio/bengaluru-namma-morning.mp3',
+        nowPlayingSong: 'Hauz Khas Social - Campus Indie Rock',
         talkScript: "Good evening Delhi! Tuning into Hauz Khas Indie Sunset on Tarang. Independent music from university campuses and garage bands across the capital."
       }
     ]
@@ -128,6 +144,8 @@ const CITIES_DATA = [
         listeners: 1920,
         isLive: true,
         gradient: 'linear-gradient(135deg, #d97706, #78350f)',
+        audioUrl: '/audio/chennai-morning-kapi.mp3',
+        nowPlayingSong: 'Mylapore Strings - Morning Kapi Melodies',
         talkScript: "Vanakkam Chennai! RJ Ananya with you on Tarang Chennai 93.5. Morning filter coffee in hand, breezy Marina beach air, and the greatest Kollywood melodies streaming live!"
       },
       {
@@ -137,8 +155,10 @@ const CITIES_DATA = [
         lang: 'Tamil Fusion & Folk',
         tags: ['Indie', 'Music'],
         listeners: 1410,
-        isLive: true,
+        isLive: false,
         gradient: 'linear-gradient(135deg, #ff6600, #17171e)',
+        audioUrl: '/audio/chennai-morning-kapi.mp3',
+        nowPlayingSong: 'Marina Coastal Rhythms - Carnatic Fusion',
         talkScript: "Vanakkam! Tune into Marina Coastal Rhythms on Tarang. Blending traditional Carnatic notes with contemporary acoustic indie grooves."
       }
     ]
@@ -157,6 +177,8 @@ const CITIES_DATA = [
         listeners: 1650,
         isLive: true,
         gradient: 'linear-gradient(135deg, #b45309, #451a03)',
+        audioUrl: '/audio/kolkata-rock.mp3',
+        nowPlayingSong: 'College Street Rock - Calcutta Adda',
         talkScript: "Nomoshkar Kolkata! You are listening to Tarang Kolkata 91.9 with RJ Sourav. The evening tea stall adda is on, playing timeless Bengali rock and soulful acoustics."
       },
       {
@@ -166,8 +188,10 @@ const CITIES_DATA = [
         lang: 'English Smooth Jazz',
         tags: ['Music', 'Late Night'],
         listeners: 980,
-        isLive: true,
+        isLive: false,
         gradient: 'linear-gradient(135deg, #2a2018, #ff851a)',
+        audioUrl: '/audio/kolkata-rock.mp3',
+        nowPlayingSong: 'Midnight at Mocambo - Park Street Jazz',
         talkScript: "Welcome to the Park Street Jazz Lounge on Tarang Kolkata. Dim your lights, unwind, and let the saxophones carry your night away."
       }
     ]
@@ -186,6 +210,8 @@ const CITIES_DATA = [
         listeners: 2310,
         isLive: true,
         gradient: 'linear-gradient(135deg, #f97316, #7c2d12)',
+        audioUrl: '/audio/hyderabad-biryani-bass.mp3',
+        nowPlayingSong: 'Biryani & Bass - Tollywood Club Groove',
         talkScript: "Namaskaram Hyderabad! RJ Vikram live on Tarang 92.7! Charminar chai, spicy Irani snacks, and Tollywood's biggest chartbusters coming right up!"
       }
     ]
@@ -202,8 +228,10 @@ const CITIES_DATA = [
         lang: 'Marathi & Hindi Comedy',
         tags: ['Comedy', 'Talk', 'Indie'],
         listeners: 1540,
-        isLive: true,
+        isLive: false,
         gradient: 'linear-gradient(135deg, #c2410c, #1f1f26)',
+        audioUrl: '/audio/delhi-dilli6-gupshup.mp3',
+        nowPlayingSong: 'FC Road Buzz - Collegiate Indie Beat',
         talkScript: "Kasa kay Pune! RJ Tanmay here on Tarang Pune 95.0. Campus life, canteen gossip, weekend plans, and fresh Pune indie jams!"
       }
     ]
@@ -220,8 +248,10 @@ const CITIES_DATA = [
         lang: 'Malayalam Indie & Talk',
         tags: ['Indie', 'Music', 'Late Night'],
         listeners: 1280,
-        isLive: true,
+        isLive: false,
         gradient: 'linear-gradient(135deg, #ea580c, #431407)',
+        audioUrl: '/audio/chennai-morning-kapi.mp3',
+        nowPlayingSong: 'Backwaters & Breeze - Malabar Acoustic',
         talkScript: "Namaskaram Kochi! Tuning in to Tarang Kochi 94.3 with RJ Nithin. Relax with the sounds of backwaters and beautiful contemporary Malayalam indie music."
       }
     ]
@@ -238,8 +268,10 @@ const CITIES_DATA = [
         lang: 'English Chill & Reggae',
         tags: ['Indie', 'Music', 'Late Night'],
         listeners: 1820,
-        isLive: true,
+        isLive: false,
         gradient: 'linear-gradient(135deg, #ff7a1a, #991b1b)',
+        audioUrl: '/audio/goa-sunset-chill.mp3',
+        nowPlayingSong: 'Anjuna Golden Hour - Coastal Reggae Chill',
         talkScript: "Peace and love from sunny Goa! RJ Leo on Tarang Goa 92.7. Golden hour by the ocean, acoustic guitars, and laid-back coastal vibrations."
       }
     ]
@@ -272,6 +304,86 @@ class RadioAudioEngine {
     this.synthLoopInterval = null;
     this.isMuted = false;
     this.previousVolume = 0.8;
+    this.streamAudio = null;
+    this.currentMode = 'synth'; // 'synth' or 'stream'
+    this.onStreamStateChange = null;
+  }
+
+  initStreamAudio() {
+    if (!this.streamAudio) {
+      this.streamAudio = new Audio();
+      this.streamAudio.preload = 'none';
+      this.streamAudio.volume = this.previousVolume || 0.8;
+
+      this.streamAudio.addEventListener('playing', () => {
+        this.isPlaying = true;
+        if (this.onStreamStateChange) this.onStreamStateChange('playing');
+      });
+
+      this.streamAudio.addEventListener('pause', () => {
+        if (this.currentMode === 'stream') {
+          this.isPlaying = false;
+          if (this.onStreamStateChange) this.onStreamStateChange('paused');
+        }
+      });
+
+      this.streamAudio.addEventListener('ended', () => {
+        this.isPlaying = false;
+        if (this.onStreamStateChange) this.onStreamStateChange('ended');
+        if (this.onSongEnded) {
+          this.onSongEnded();
+        }
+      });
+
+      this.streamAudio.addEventListener('waiting', () => {
+        if (this.onStreamStateChange) this.onStreamStateChange('buffering');
+      });
+
+      this.streamAudio.addEventListener('error', (e) => {
+        console.warn('Audio stream playback error:', e);
+        if (this.onStreamStateChange) this.onStreamStateChange('error');
+      });
+    }
+  }
+
+  async playExternalStream(url, onStateChange) {
+    this.init();
+    this.initStreamAudio();
+    this.stopSynth();
+    this.currentMode = 'stream';
+    this.onStreamStateChange = onStateChange;
+
+    this.streamAudio.src = url;
+    try {
+      await this.streamAudio.play();
+      this.isPlaying = true;
+      return true;
+    } catch (err) {
+      console.warn('Stream play() failed or blocked by browser policy:', err);
+      if (err.name === 'NotAllowedError' && window.tarang) {
+        window.tarang.showAutoplayAlert();
+      }
+      if (this.onStreamStateChange) this.onStreamStateChange('error');
+      return false;
+    }
+  }
+
+  stopStream() {
+    if (this.streamAudio) {
+      this.streamAudio.pause();
+      this.streamAudio.removeAttribute('src');
+      this.streamAudio.load();
+    }
+  }
+
+  stopSynth() {
+    if (this.synthLoopInterval) {
+      clearInterval(this.synthLoopInterval);
+      this.synthLoopInterval = null;
+    }
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
   }
 
   init() {
@@ -537,19 +649,33 @@ class RadioAudioEngine {
   }
 
   setVolume(val) {
+    const floatVal = parseFloat(val);
+    this.previousVolume = floatVal;
     if (this.masterGain && this.ctx) {
-      this.masterGain.gain.setValueAtTime(parseFloat(val), this.ctx.currentTime);
+      this.masterGain.gain.setValueAtTime(floatVal, this.ctx.currentTime);
+    }
+    if (this.streamAudio) {
+      this.streamAudio.volume = floatVal;
     }
   }
 
   toggleMute() {
-    if (!this.masterGain || !this.ctx) return false;
     this.isMuted = !this.isMuted;
     if (this.isMuted) {
-      this.previousVolume = this.masterGain.gain.value || 0.8;
-      this.masterGain.gain.setValueAtTime(0, this.ctx.currentTime);
+      if (this.masterGain && this.ctx) {
+        this.masterGain.gain.setValueAtTime(0, this.ctx.currentTime);
+      }
+      if (this.streamAudio) {
+        this.streamAudio.muted = true;
+      }
     } else {
-      this.masterGain.gain.setValueAtTime(this.previousVolume, this.ctx.currentTime);
+      if (this.masterGain && this.ctx) {
+        this.masterGain.gain.setValueAtTime(this.previousVolume, this.ctx.currentTime);
+      }
+      if (this.streamAudio) {
+        this.streamAudio.muted = false;
+        this.streamAudio.volume = this.previousVolume;
+      }
     }
     return this.isMuted;
   }
@@ -572,11 +698,37 @@ class RadioAudioEngine {
 
       // Slightly duck background music while RJ is on air if enabled
       const shouldDuck = !window.tarang || window.tarang.userSettings?.autoDucking !== false;
-      if (shouldDuck && this.masterGain && this.ctx) {
-        this.masterGain.gain.setValueAtTime(0.25, this.ctx.currentTime);
+      const originalVolume = this.previousVolume || 0.8;
+
+      if (shouldDuck) {
+        if (this.streamAudio) {
+          this.streamAudio.volume = Math.max(0.12, originalVolume * 0.22);
+        }
+        if (this.masterGain && this.ctx) {
+          this.masterGain.gain.setValueAtTime(0.22, this.ctx.currentTime);
+        }
         utterance.onend = () => {
+          if (this.streamAudio && !this.isMuted) {
+            let current = this.streamAudio.volume;
+            const step = (originalVolume - current) / 10;
+            const rampInterval = setInterval(() => {
+              if (!this.streamAudio || this.isMuted) {
+                clearInterval(rampInterval);
+                return;
+              }
+              current = Math.min(originalVolume, current + step);
+              this.streamAudio.volume = current;
+              if (current >= originalVolume) clearInterval(rampInterval);
+            }, 40);
+          }
           if (this.masterGain && this.ctx && !this.isMuted) {
-            this.masterGain.gain.linearRampToValueAtTime(0.8, this.ctx.currentTime + 1.0);
+            this.masterGain.gain.linearRampToValueAtTime(originalVolume, this.ctx.currentTime + 0.8);
+          }
+        };
+      } else {
+        utterance.onend = () => {
+          if (this.streamAudio && !this.isMuted) {
+            this.streamAudio.volume = originalVolume;
           }
         };
       }
@@ -585,6 +737,61 @@ class RadioAudioEngine {
     } catch (e) {
       console.warn("Speech synthesis error:", e);
     }
+  }
+
+  // Promise-based sentence speaker for sequential multi-segment shows with multilingual support
+  speakSentence(text, langCode = 'kn-IN', onStart) {
+    return new Promise((resolve) => {
+      if (!('speechSynthesis' in window)) {
+        setTimeout(resolve, 2000);
+        return;
+      }
+      try {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 1.02;
+        utterance.pitch = 1.0;
+        utterance.lang = langCode || 'kn-IN';
+
+        const voices = window.speechSynthesis.getVoices();
+        const prefix = (langCode || 'kn').split('-')[0].toLowerCase();
+        let matchedVoice = voices.find(v => v.lang.toLowerCase() === langCode.toLowerCase());
+        if (!matchedVoice) {
+          matchedVoice = voices.find(v => v.lang.toLowerCase().startsWith(prefix));
+        }
+        if (!matchedVoice) {
+          matchedVoice = voices.find(v => v.lang.includes('IN') || v.name.includes('India') || v.lang.includes('hi'));
+        }
+        if (matchedVoice) {
+          utterance.voice = matchedVoice;
+        }
+
+        const originalVolume = this.previousVolume || 0.8;
+        if (this.streamAudio) {
+          this.streamAudio.volume = Math.max(0.08, originalVolume * 0.18);
+        }
+        if (this.masterGain && this.ctx) {
+          this.masterGain.gain.setValueAtTime(0.18, this.ctx.currentTime);
+        }
+
+        utterance.onstart = () => {
+          if (onStart) onStart();
+        };
+
+        utterance.onend = () => {
+          resolve();
+        };
+
+        utterance.onerror = () => {
+          resolve();
+        };
+
+        window.speechSynthesis.speak(utterance);
+      } catch (err) {
+        console.warn("Speech error:", err);
+        resolve();
+      }
+    });
   }
 }
 
@@ -631,6 +838,12 @@ class TarangApp {
     if (this.userSettings.homeCity && this.cities.some(c => c.id === this.userSettings.homeCity)) {
       this.activeCityId = this.userSettings.homeCity;
     }
+    this.activeView = 'city';
+    this.currentSourceType = 'tarang'; // 'tarang', 'radio-browser', 'jamendo'
+    this.currentStreamItem = null;
+    this.radioBrowserStations = [];
+    this.jamendoTracks = [];
+    this.activeJamendoGenre = 'All';
 
     this.initDOM();
     this.initAuthSession();
@@ -639,12 +852,27 @@ class TarangApp {
     this.setupEventListeners();
     this.startLiveFluctuations();
     this.initBackendSync();
+    this.loadBackendCitiesAndChannels();
+    this.updateAirjBannerForCity(this.activeCityId);
+
+    // Preload directory filters and Jamendo status in background
+    this.loadRadioBrowserFilters();
+    this.loadJamendoStatus();
   }
 
   initDOM() {
+    // Navigation & Main Views
+    this.tabNavCity = document.getElementById('tab-nav-city');
+    this.tabNavDirectory = document.getElementById('tab-nav-directory');
+    this.tabNavJamendo = document.getElementById('tab-nav-jamendo');
+    this.viewCity = document.getElementById('view-city');
+    this.viewDirectory = document.getElementById('view-directory');
+    this.viewJamendo = document.getElementById('view-jamendo');
+
     // Tuner
     this.tunerListEl = document.getElementById('tuner-cards-list');
     this.tunerNeedleEl = document.getElementById('tuner-needle');
+    this.needleFreqDisplay = document.getElementById('needle-freq-display');
     this.tunerTicksEl = document.getElementById('tuner-ticks');
     this.tunerContainerEl = document.getElementById('tuner-track-container');
 
@@ -657,10 +885,14 @@ class TarangApp {
     // Player
     this.playerIdleEl = document.getElementById('player-idle-content');
     this.playerActiveEl = document.getElementById('player-active-content');
+    this.playerSourceTag = document.getElementById('player-source-tag');
+    this.playerStatusBadge = document.getElementById('player-status-badge');
+    this.playerAttributionLink = document.getElementById('player-attribution-link');
     this.playerChannelTitleEl = document.getElementById('player-channel-title');
     this.playerRjInfoEl = document.getElementById('player-rj-info');
     this.playerCityLabelEl = document.getElementById('player-city-label');
     this.playerThumbEl = document.getElementById('player-thumb');
+    this.playerThumbIcon = document.getElementById('player-thumb-icon');
     this.btnPlayPause = document.getElementById('btn-play-pause');
     this.iconPlay = document.getElementById('icon-play');
     this.iconPause = document.getElementById('icon-pause');
@@ -671,6 +903,32 @@ class TarangApp {
     this.iconVolMuted = document.getElementById('icon-vol-muted');
     this.visualizerCanvas = document.getElementById('audio-visualizer-canvas');
     this.visualizerCtx = this.visualizerCanvas.getContext('2d');
+
+    // Autoplay blocked banner
+    this.autoplayBanner = document.getElementById('autoplay-banner');
+    this.btnResumeAutoplay = document.getElementById('btn-resume-autoplay');
+
+    // Indian Radio Directory View Elements
+    this.directorySearchInput = document.getElementById('directory-search-input');
+    this.directoryStateSelect = document.getElementById('directory-state-select');
+    this.directoryLangSelect = document.getElementById('directory-lang-select');
+    this.directoryBtnRefresh = document.getElementById('directory-btn-refresh');
+    this.directoryStationsGrid = document.getElementById('directory-stations-grid');
+    this.directoryResultsCount = document.getElementById('directory-results-count');
+    this.directoryEmptyState = document.getElementById('directory-empty-state');
+    this.btnResetDirectoryFilters = document.getElementById('btn-reset-directory-filters');
+
+    // Jamendo View Elements
+    this.jamendoStatusBox = document.getElementById('jamendo-status-box');
+    this.jamendoStatusTitle = document.getElementById('jamendo-status-title');
+    this.jamendoStatusDesc = document.getElementById('jamendo-status-desc');
+    this.jamendoStatusIcon = document.getElementById('jamendo-status-icon');
+    this.jamendoSearchInput = document.getElementById('jamendo-search-input');
+    this.jamendoGenreChips = document.getElementById('jamendo-genre-chips');
+    this.jamendoTracksGrid = document.getElementById('jamendo-tracks-grid');
+    this.jamendoResultsCount = document.getElementById('jamendo-results-count');
+    this.jamendoEmptyState = document.getElementById('jamendo-empty-state');
+    this.btnResetJamendoSearch = document.getElementById('btn-reset-jamendo-search');
 
     // Chat Drawer
     this.chatDrawerEl = document.getElementById('chat-drawer');
@@ -714,6 +972,50 @@ class TarangApp {
     // Overlay
     this.reactionsLayerEl = document.getElementById('reactions-layer');
 
+    // AI RJ Daily Show Banner & Modal Elements
+    this.airjLiveBanner = document.getElementById('airj-live-banner');
+    this.airjHostLabel = document.getElementById('airj-host-label');
+    this.airjWeatherText = document.getElementById('airj-weather-text');
+    this.weatherIcon = document.getElementById('weather-icon');
+    this.airjHeadline = document.getElementById('airj-headline');
+    this.airjSnippet = document.getElementById('airj-snippet');
+    this.btnStartAirjShow = document.getElementById('btn-start-airj-show');
+    this.airjBtnLabel = document.getElementById('airj-btn-label');
+    this.airjLangSelect = document.getElementById('airj-lang-select');
+    this.airjAutohostCheckbox = document.getElementById('airj-autohost-checkbox');
+    this.airjProviderBadge = document.getElementById('airj-provider-badge');
+
+    this.airjModal = document.getElementById('airj-modal');
+    this.btnCloseAirjModal = document.getElementById('btn-close-airj-modal');
+    this.btnStopAirjShow = document.getElementById('btn-stop-airj-show');
+    this.btnSkipToSong = document.getElementById('btn-skip-to-song');
+    this.airjModalCityTag = document.getElementById('airj-modal-city-tag');
+    this.airjModalLangTag = document.getElementById('airj-modal-lang-tag');
+    this.airjModalEngineTag = document.getElementById('airj-modal-engine-tag');
+    this.airjModalHostTitle = document.getElementById('airj-modal-host-title');
+    this.airjModalWeatherIcon = document.getElementById('airj-modal-weather-icon');
+    this.airjModalTemp = document.getElementById('airj-modal-temp');
+    this.airjModalCond = document.getElementById('airj-modal-cond');
+    this.airjModalWeatherMeta = document.getElementById('airj-modal-weather-meta');
+    this.airjModalWeatherAlert = document.getElementById('airj-modal-weather-alert');
+
+    // 5-step broadcast step elements
+    this.airjModalStep1 = document.getElementById('airj-modal-step1');
+    this.airjModalStep2 = document.getElementById('airj-modal-step2');
+    this.airjModalStep3 = document.getElementById('airj-modal-step3');
+    this.airjModalStep4 = document.getElementById('airj-modal-step4');
+    this.airjModalStep5 = document.getElementById('airj-modal-step5');
+    this.airjModalSongTitle = document.getElementById('airj-modal-song-title');
+    this.airjLiveSubtitle = document.getElementById('airj-live-subtitle');
+    this.airjSpeechStatus = document.getElementById('airj-speech-status');
+    this.airjTranscriptHint = document.getElementById('airj-transcript-hint');
+
+    this.segStep1Card = document.getElementById('seg-step1-card');
+    this.segStep2Card = document.getElementById('seg-step2-card');
+    this.segStep3Card = document.getElementById('seg-step3-card');
+    this.segStep4Card = document.getElementById('seg-step4-card');
+    this.segStep5Card = document.getElementById('seg-step5-card');
+
     // Render Tuner ticks
     let ticksHtml = '';
     for (let i = 0; i < 48; i++) {
@@ -735,9 +1037,23 @@ class TarangApp {
       card.dataset.cityId = city.id;
 
       const liveCount = city.channels.filter(c => c.isLive).length;
+      const freqNum = (city.freq.match(/[\d\.]+/)?.[0] || '91.1') + ' MHz';
       card.innerHTML = `
+        <div class="city-card-header">
+          <span class="city-signal-pill ${liveCount > 0 ? 'live' : ''}">
+            <span class="city-signal-dot"></span>
+            <span class="city-freq-tag">${freqNum}</span>
+          </span>
+        </div>
         <div class="city-card-name">${city.name}</div>
-        <div class="city-card-count">${liveCount} live</div>
+        <div class="city-card-footer">
+          <span class="city-live-status">
+            <span class="mini-eq-bars">
+              <span></span><span></span><span></span>
+            </span>
+            ${liveCount} ${liveCount === 1 ? 'Station' : 'Stations'}
+          </span>
+        </div>
       `;
 
       card.addEventListener('click', () => {
@@ -762,6 +1078,12 @@ class TarangApp {
     const containerRect = this.tunerContainerEl.getBoundingClientRect();
     const relativeCenter = (cardRect.left - containerRect.left) + (cardRect.width / 2) + this.tunerContainerEl.scrollLeft;
     this.tunerNeedleEl.style.left = `${relativeCenter}px`;
+
+    if (this.needleFreqDisplay) {
+      const city = this.cities.find(c => c.id === this.activeCityId);
+      const freqNum = city ? (city.freq.match(/[\d\.]+/)?.[0] || '91.1') : '91.1';
+      this.needleFreqDisplay.textContent = freqNum;
+    }
   }
 
   switchCity(cityId, cardElement) {
@@ -785,6 +1107,7 @@ class TarangApp {
     }
 
     this.renderChannels();
+    this.updateAirjBannerForCity(cityId);
   }
 
   renderChannels() {
@@ -804,23 +1127,59 @@ class TarangApp {
       return true;
     });
 
+    // Sort: Live channels first, then by listener count descending (README Section 14)
+    filtered.sort((a, b) => {
+      if (Boolean(a.isLive) !== Boolean(b.isLive)) {
+        return a.isLive ? -1 : 1;
+      }
+      return (b.listeners || 0) - (a.listeners || 0);
+    });
+
     this.channelsListEl.innerHTML = '';
 
     if (filtered.length === 0) {
       this.emptyStateEl.classList.remove('hidden');
+      const emptyTitle = document.getElementById('empty-title');
+      const emptyDesc = document.getElementById('empty-desc');
+      if (emptyTitle && emptyDesc) {
+        if (this.activeFilter === 'live') {
+          emptyTitle.textContent = 'No live broadcasts right now in this city';
+          emptyDesc.textContent = 'All stations in this city are currently on AutoDJ. Click "All Channels" or switch to another city.';
+        } else if (this.activeFilter === 'subscribed') {
+          emptyTitle.textContent = 'No subscribed channels in this city';
+          emptyDesc.textContent = 'Click "Subscribe" on any channel card to follow your favorite RJs!';
+        } else {
+          emptyTitle.textContent = 'No channels found';
+          emptyDesc.textContent = 'Try choosing another genre filter or switch to a different city.';
+        }
+      }
     } else {
       this.emptyStateEl.classList.add('hidden');
 
       filtered.forEach(channel => {
         const isCurrentlyPlaying = this.currentChannel && this.currentChannel.id === channel.id && this.audio.isPlaying;
         const isSubscribed = this.subscribedChannelIds.has(channel.id);
+        const isLive = Boolean(channel.isLive);
 
         const card = document.createElement('div');
-        card.className = `channel-card ${isCurrentlyPlaying ? 'is-playing' : ''}`;
+        card.className = `channel-card ${isCurrentlyPlaying ? 'is-playing' : ''} ${isLive ? 'channel-live' : 'channel-autodj'}`;
         card.dataset.channelId = channel.id;
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', `${channel.title}, ${channel.rj}, ${isLive ? 'Live on air' : 'AutoDJ playing'}`);
 
         const tagsHtml = channel.tags.map(t => `<span class="tag-badge">${t}</span>`).join('');
         const listenersFormatted = channel.listeners >= 1000 ? `${(channel.listeners / 1000).toFixed(1)}k` : channel.listeners;
+
+        const badgeHtml = isLive
+          ? `<div class="live-listeners-badge is-live">
+               <span class="live-beacon"></span>
+               <span>Live · <span class="listener-count-num" data-id="${channel.id}">${listenersFormatted}</span></span>
+             </div>`
+          : `<div class="live-listeners-badge is-autodj">
+               <span class="autodj-tag-beacon">AutoDJ</span>
+               <span>· <span class="listener-count-num" data-id="${channel.id}">${listenersFormatted}</span></span>
+             </div>`;
 
         card.innerHTML = `
           <div class="card-top-row">
@@ -842,16 +1201,13 @@ class TarangApp {
           </div>
 
           <div class="card-bottom-row">
-            <div class="live-listeners-badge">
-              <span class="live-beacon"></span>
-              <span>Live · <span class="listener-count-num" data-id="${channel.id}">${listenersFormatted}</span></span>
-            </div>
+            ${badgeHtml}
             <div class="card-actions-group">
               <button class="btn-subscribe ${isSubscribed ? 'is-subscribed' : ''}" data-channel-id="${channel.id}">
                 ${isSubscribed ? '✓ Subscribed' : 'Subscribe'}
               </button>
               <button class="btn-tune-card" data-channel-id="${channel.id}">
-                ${isCurrentlyPlaying ? 'Listening' : 'Tune In'}
+                ${isCurrentlyPlaying ? 'Listening' : (isLive ? 'Tune In' : 'Play AutoDJ')}
               </button>
             </div>
           </div>
@@ -867,6 +1223,15 @@ class TarangApp {
         // Click card or Tune button to tune into this station
         card.addEventListener('click', () => {
           this.tuneIntoChannel(channel);
+        });
+
+        // Keyboard navigation: Enter or Space plays channel
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            if (e.target === subBtn) return;
+            e.preventDefault();
+            this.tuneIntoChannel(channel);
+          }
         });
 
         this.channelsListEl.appendChild(card);
@@ -908,27 +1273,7 @@ class TarangApp {
     }
   }
 
-  tuneIntoChannel(channel) {
-    this.audio.init();
-    this.audio.playStaticBurst(0.3);
-
-    this.currentChannel = channel;
-    this.audio.isPlaying = true;
-    this.audio.startStationMusicStream();
-
-    // Update bottom player UI
-    this.playerIdleEl.classList.add('hidden');
-    this.playerActiveEl.classList.remove('hidden');
-
-    this.playerChannelTitleEl.textContent = channel.title;
-    this.playerRjInfoEl.textContent = `${channel.rj} · ${channel.lang}`;
-    this.playerCityLabelEl.textContent = this.cities.find(c => c.id === this.activeCityId)?.name || 'India';
-    this.playerThumbEl.style.background = channel.gradient;
-
-    this.iconPlay.classList.add('hidden');
-    this.iconPause.classList.remove('hidden');
-
-    // Reset and start show timer
+  resetTimer() {
     this.secondsPlayed = 0;
     if (this.timerId) clearInterval(this.timerId);
     this.timerId = setInterval(() => {
@@ -936,35 +1281,275 @@ class TarangApp {
       const hrs = String(Math.floor(this.secondsPlayed / 3600)).padStart(2, '0');
       const mins = String(Math.floor((this.secondsPlayed % 3600) / 60)).padStart(2, '0');
       const secs = String(this.secondsPlayed % 60).padStart(2, '0');
-      this.timeTickerEl.textContent = `${hrs}:${mins}:${secs}`;
+      if (this.timeTickerEl) this.timeTickerEl.textContent = `${hrs}:${mins}:${secs}`;
     }, 1000);
+  }
 
+  async tuneIntoChannel(channel) {
+    this.audio.init();
+    this.audio.stopSynth();
+    this.audio.playStaticBurst(0.3);
+
+    this.currentSourceType = 'tarang';
+    this.currentChannel = channel;
+    this.currentStreamItem = null;
+    this.audio.isPlaying = true;
+    this.hideAutoplayAlert();
+
+    const isLive = Boolean(channel.isLive);
+
+    // Update bottom player UI
+    this.playerIdleEl.classList.add('hidden');
+    this.playerActiveEl.classList.remove('hidden');
+
+    if (this.playerSourceTag) {
+      this.playerSourceTag.className = 'player-source-tag';
+      this.playerSourceTag.textContent = isLive ? '🎙️ Tarang Live Broadcast' : '📻 Tarang City FM · AutoDJ';
+    }
+    if (this.playerStatusBadge) {
+      this.playerStatusBadge.textContent = isLive ? '● LIVE' : 'AutoDJ';
+      this.playerStatusBadge.className = `badge-live-stream ${isLive ? 'is-live' : 'is-autodj'}`;
+    }
+    if (this.playerAttributionLink) {
+      this.playerAttributionLink.classList.add('hidden');
+    }
+
+    this.playerChannelTitleEl.textContent = channel.title;
+    this.playerRjInfoEl.textContent = channel.nowPlayingSong
+      ? `Now Playing: ${channel.nowPlayingSong} (${channel.rj})`
+      : `${channel.rj} · ${channel.lang}`;
+    this.playerCityLabelEl.textContent = this.cities.find(c => c.id === this.activeCityId)?.name || 'India';
+    this.playerThumbEl.style.background = channel.gradient;
+    if (this.playerThumbIcon) this.playerThumbIcon.textContent = '📻';
+
+    this.iconPlay.classList.add('hidden');
+    this.iconPause.classList.remove('hidden');
+
+    this.resetTimer();
     this.renderChannels();
+    this.renderRadioBrowserStations(this.radioBrowserStations);
+    this.renderJamendoTracks(this.jamendoTracks);
 
-    // RJ on-air greeting after tuning in!
-    setTimeout(() => {
-      if (channel.talkScript) {
-        this.audio.speakRJ(channel.talkScript);
+    // Audio track URL for this station
+    const audioUrl = channel.audioUrl || '/audio/bengaluru-namma-morning.mp3';
+
+    // Play the station music track (loop enabled so it plays continuously!)
+    await this.audio.playExternalStream(audioUrl, (state) => {
+      if (state === 'error') {
+        this.audio.startStationMusicStream();
       }
-    }, 800);
+    });
+
+    if (this.audio.streamAudio) {
+      this.audio.streamAudio.loop = true;
+    }
+
+    // Call backend listen endpoint to increment listeners & receive LiveKit/AutoDJ token
+    try {
+      fetch(`/api/v1/channels/${channel.id}/listen`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+      }).then(r => r.json()).then(res => {
+        if (res.success && res.data) {
+          if (res.data.listeners) {
+            channel.listeners = res.data.listeners;
+            const countEl = document.querySelector(`.listener-count-num[data-id="${channel.id}"]`);
+            if (countEl) {
+              countEl.textContent = channel.listeners >= 1000 
+                ? `${(channel.listeners / 1000).toFixed(1)}k` 
+                : channel.listeners;
+            }
+          }
+        }
+      }).catch(() => {});
+    } catch (e) {}
+
+    // Start 20s listener presence heartbeat
+    if (this.channelHeartbeatTimer) clearInterval(this.channelHeartbeatTimer);
+    this.channelHeartbeatTimer = setInterval(() => {
+      if (this.currentChannel && this.currentChannel.id === channel.id && this.audio.isPlaying) {
+        fetch(`/api/v1/channels/${channel.id}/heartbeat`, { method: 'POST' }).catch(() => {});
+      } else {
+        clearInterval(this.channelHeartbeatTimer);
+        this.channelHeartbeatTimer = null;
+      }
+    }, 20000);
+  }
+
+  async tuneIntoRadioBrowserStation(station) {
+    this.audio.init();
+    this.audio.stopSynth();
+    this.audio.playStaticBurst(0.25);
+
+    this.currentSourceType = 'radio-browser';
+    this.currentStreamItem = station;
+    this.currentChannel = null;
+    this.hideAutoplayAlert();
+
+    // Update bottom player UI
+    this.playerIdleEl.classList.add('hidden');
+    this.playerActiveEl.classList.remove('hidden');
+
+    if (this.playerSourceTag) {
+      this.playerSourceTag.className = 'player-source-tag source-directory';
+      this.playerSourceTag.textContent = '📡 Third-Party Radio';
+    }
+    if (this.playerStatusBadge) {
+      this.playerStatusBadge.textContent = '● STREAM';
+    }
+    if (this.playerAttributionLink) {
+      this.playerAttributionLink.classList.remove('hidden');
+      this.playerAttributionLink.href = station.homepage || 'https://www.radio-browser.info/';
+      this.playerAttributionLink.textContent = 'Station Homepage ↗';
+    }
+
+    this.playerChannelTitleEl.textContent = station.name;
+    this.playerRjInfoEl.textContent = `${station.state || 'All India'} · ${station.language || 'Indian'} (${station.codec} ${station.bitrate}k)`;
+    this.playerCityLabelEl.textContent = station.state || 'India';
+    this.playerThumbEl.style.background = 'linear-gradient(135deg, #059669, #064e3b)';
+    if (this.playerThumbIcon) this.playerThumbIcon.textContent = '📡';
+
+    this.iconPlay.classList.add('hidden');
+    this.iconPause.classList.remove('hidden');
+
+    this.resetTimer();
+    this.renderChannels();
+    this.renderRadioBrowserStations(this.radioBrowserStations);
+    this.renderJamendoTracks(this.jamendoTracks);
+
+    const success = await this.audio.playExternalStream(station.streamUrl, (state) => {
+      if (state === 'error') {
+        this.spawnFloatingReaction('⚠️');
+        alert(`Station "${station.name}" stream is currently unreachable from broadcaster. Please try another station.`);
+        this.iconPlay.classList.remove('hidden');
+        this.iconPause.classList.add('hidden');
+      }
+    });
+
+    if (!success) {
+      this.iconPlay.classList.remove('hidden');
+      this.iconPause.classList.add('hidden');
+    }
+  }
+
+  async tuneIntoJamendoTrack(track) {
+    if (track.isPlayable === false) {
+      alert(`Track "${track.title}" is restricted by license or missing audio and is unavailable for demo playback.`);
+      return;
+    }
+
+    this.audio.init();
+    this.audio.stopSynth();
+    this.audio.playStaticBurst(0.25);
+
+    this.currentSourceType = 'jamendo';
+    this.currentStreamItem = track;
+    this.currentChannel = null;
+    this.hideAutoplayAlert();
+
+    // Update bottom player UI
+    this.playerIdleEl.classList.add('hidden');
+    this.playerActiveEl.classList.remove('hidden');
+
+    if (this.playerSourceTag) {
+      this.playerSourceTag.className = 'player-source-tag source-jamendo';
+      this.playerSourceTag.textContent = `🎵 Jamendo · ${track.licenseName || 'CC'}`;
+    }
+    if (this.playerStatusBadge) {
+      this.playerStatusBadge.textContent = '● DEMO';
+    }
+    if (this.playerAttributionLink) {
+      this.playerAttributionLink.classList.remove('hidden');
+      this.playerAttributionLink.href = track.shareurl || 'https://www.jamendo.com';
+      this.playerAttributionLink.textContent = `Jamendo (${track.licenseName}) ↗`;
+    }
+
+    this.playerChannelTitleEl.textContent = track.title;
+    this.playerRjInfoEl.textContent = `${track.artist} · ${track.genre || 'Indie'}`;
+    this.playerCityLabelEl.textContent = track.licenseName || 'Creative Commons';
+    this.playerThumbEl.style.background = 'linear-gradient(135deg, #d97706, #78350f)';
+    if (this.playerThumbIcon) this.playerThumbIcon.textContent = '🎵';
+
+    this.iconPlay.classList.add('hidden');
+    this.iconPause.classList.remove('hidden');
+
+    this.resetTimer();
+    this.renderChannels();
+    this.renderRadioBrowserStations(this.radioBrowserStations);
+    this.renderJamendoTracks(this.jamendoTracks);
+
+    const success = await this.audio.playExternalStream(track.audio, (state) => {
+      if (state === 'error') {
+        alert(`Failed to load audio for track "${track.title}".`);
+        this.iconPlay.classList.remove('hidden');
+        this.iconPause.classList.add('hidden');
+      }
+    });
+
+    if (!success) {
+      this.iconPlay.classList.remove('hidden');
+      this.iconPause.classList.add('hidden');
+    }
   }
 
   togglePlayPause() {
-    if (!this.currentChannel) return;
-    this.audio.isPlaying = !this.audio.isPlaying;
+    if (!this.currentChannel && !this.currentStreamItem) return;
 
-    if (this.audio.isPlaying) {
-      this.iconPlay.classList.add('hidden');
-      this.iconPause.classList.remove('hidden');
-      this.audio.startStationMusicStream();
+    if (this.currentSourceType === 'tarang') {
+      this.audio.isPlaying = !this.audio.isPlaying;
+      if (this.audio.isPlaying) {
+        this.iconPlay.classList.add('hidden');
+        this.iconPause.classList.remove('hidden');
+        if (this.audio.streamAudio && this.audio.streamAudio.src) {
+          this.audio.streamAudio.play();
+        } else {
+          this.audio.startStationMusicStream();
+        }
+      } else {
+        this.iconPlay.classList.remove('hidden');
+        this.iconPause.classList.add('hidden');
+        if (this.audio.streamAudio) {
+          this.audio.streamAudio.pause();
+        }
+        this.audio.stopSynth();
+      }
+      this.renderChannels();
     } else {
-      this.iconPlay.classList.remove('hidden');
-      this.iconPause.classList.add('hidden');
-      if (this.audio.synthLoopInterval) {
-        clearInterval(this.audio.synthLoopInterval);
+      // Stream audio (Radio Browser or Jamendo)
+      if (this.audio.streamAudio) {
+        if (this.audio.streamAudio.paused) {
+          this.audio.streamAudio.play().then(() => {
+            this.audio.isPlaying = true;
+            this.iconPlay.classList.add('hidden');
+            this.iconPause.classList.remove('hidden');
+          }).catch(err => {
+            if (err.name === 'NotAllowedError') this.showAutoplayAlert();
+          });
+        } else {
+          this.audio.streamAudio.pause();
+          this.audio.isPlaying = false;
+          this.iconPlay.classList.remove('hidden');
+          this.iconPause.classList.add('hidden');
+        }
+      }
+      if (this.currentSourceType === 'radio-browser') {
+        this.renderRadioBrowserStations(this.radioBrowserStations);
+      } else if (this.currentSourceType === 'jamendo') {
+        this.renderJamendoTracks(this.jamendoTracks);
       }
     }
-    this.renderChannels();
+  }
+
+  showAutoplayAlert() {
+    if (this.autoplayBanner) {
+      this.autoplayBanner.classList.remove('hidden');
+    }
+  }
+
+  hideAutoplayAlert() {
+    if (this.autoplayBanner) {
+      this.autoplayBanner.classList.add('hidden');
+    }
   }
 
   playNextStation() {
@@ -1097,12 +1682,37 @@ class TarangApp {
     document.getElementById('btn-next-channel').addEventListener('click', () => this.playNextStation());
     document.getElementById('btn-prev-channel').addEventListener('click', () => this.playPrevStation());
 
-    // RJ Talk Button: Triggers live speech commentary
+    // AI RJ Daily Show Buttons
+    if (this.btnStartAirjShow) {
+      this.btnStartAirjShow.addEventListener('click', () => this.playAiRjDailyShow());
+    }
+    if (this.btnCloseAirjModal) {
+      this.btnCloseAirjModal.addEventListener('click', () => {
+        if (this.airjModal) this.airjModal.classList.add('hidden');
+      });
+    }
+    if (this.btnStopAirjShow) {
+      this.btnStopAirjShow.addEventListener('click', () => this.stopAiRjShow());
+    }
+    if (this.btnSkipToSong) {
+      this.btnSkipToSong.addEventListener('click', () => this.skipAiRjToSong());
+    }
+
+    if (this.airjLangSelect) {
+      this.airjLangSelect.addEventListener('change', () => {
+        this.updateAirjBanner();
+      });
+    }
+
+    // Audio stream ended handler -> Triggers broadcast sequence every time a song finishes
+    this.audio.onSongEnded = () => {
+      this.handleSongCompletionAutoHost();
+    };
+
+    // RJ Talk Button in player: Triggers AI RJ Live Show with news, jokes & weather!
     document.getElementById('btn-rj-speak').addEventListener('click', () => {
-      if (this.currentChannel && this.currentChannel.talkScript) {
-        this.audio.speakRJ(this.currentChannel.talkScript);
-        this.spawnFloatingReaction('🎙️');
-      }
+      this.playAiRjDailyShow();
+      this.spawnFloatingReaction('🎙️');
     });
 
     // Volume Slider
@@ -1406,6 +2016,321 @@ class TarangApp {
     if (this.btnAccountSignout) {
       this.btnAccountSignout.addEventListener('click', handleLogout);
     }
+
+    // Segmented Navigation between City Stations, Radio Browser Directory, and Jamendo Music
+    this.tabNavCity?.addEventListener('click', () => this.switchMainView('city'));
+    this.tabNavDirectory?.addEventListener('click', () => this.switchMainView('directory'));
+    this.tabNavJamendo?.addEventListener('click', () => this.switchMainView('jamendo'));
+
+    // Autoplay Resume Button
+    this.btnResumeAutoplay?.addEventListener('click', () => {
+      this.hideAutoplayAlert();
+      this.togglePlayPause();
+    });
+
+    // Indian Radio Directory Search & Filter Listeners
+    let dirSearchDebounce = null;
+    this.directorySearchInput?.addEventListener('input', () => {
+      clearTimeout(dirSearchDebounce);
+      dirSearchDebounce = setTimeout(() => this.loadRadioBrowserStations(), 350);
+    });
+    this.directoryStateSelect?.addEventListener('change', () => this.loadRadioBrowserStations());
+    this.directoryLangSelect?.addEventListener('change', () => this.loadRadioBrowserStations());
+    this.directoryBtnRefresh?.addEventListener('click', () => this.loadRadioBrowserStations());
+    
+    // Quick State Chips Listeners
+    document.querySelectorAll('#directory-quick-chips .dir-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('#directory-quick-chips .dir-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        const state = chip.dataset.state;
+        if (this.directoryStateSelect) {
+          this.directoryStateSelect.value = state;
+        }
+        this.loadRadioBrowserStations();
+      });
+    });
+
+    this.btnResetDirectoryFilters?.addEventListener('click', () => {
+      if (this.directoryStateSelect) this.directoryStateSelect.value = 'All';
+      if (this.directoryLangSelect) this.directoryLangSelect.value = 'All';
+      if (this.directorySearchInput) this.directorySearchInput.value = '';
+      document.querySelectorAll('#directory-quick-chips .dir-chip').forEach(c => c.classList.remove('active'));
+      document.querySelector('#directory-quick-chips .dir-chip[data-state="All"]')?.classList.add('active');
+      this.loadRadioBrowserStations();
+    });
+
+    // Jamendo Search & Genre Chips Listeners
+    let jamSearchDebounce = null;
+    this.jamendoSearchInput?.addEventListener('input', () => {
+      clearTimeout(jamSearchDebounce);
+      jamSearchDebounce = setTimeout(() => {
+        const query = this.jamendoSearchInput.value.trim();
+        this.loadJamendoTracks(this.activeJamendoGenre, query);
+      }, 350);
+    });
+
+    document.querySelectorAll('#jamendo-genre-chips .genre-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('#jamendo-genre-chips .genre-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        this.activeJamendoGenre = chip.dataset.jamendoGenre || 'All';
+        const query = this.jamendoSearchInput ? this.jamendoSearchInput.value.trim() : '';
+        this.loadJamendoTracks(this.activeJamendoGenre, query);
+      });
+    });
+
+    this.btnResetJamendoSearch?.addEventListener('click', () => {
+      if (this.jamendoSearchInput) this.jamendoSearchInput.value = '';
+      this.activeJamendoGenre = 'All';
+      document.querySelectorAll('#jamendo-genre-chips .genre-chip').forEach(c => c.classList.remove('active'));
+      document.querySelector('#jamendo-genre-chips .genre-chip[data-jamendo-genre="All"]')?.classList.add('active');
+      this.loadJamendoTracks('All', '');
+    });
+  }
+
+  /* ------------------- View Switching & Directory/Jamendo Loaders ------------------- */
+
+  switchMainView(viewName) {
+    this.activeView = viewName;
+    document.querySelectorAll('.main-segmented-nav .nav-pill').forEach(pill => {
+      pill.classList.toggle('active', pill.dataset.view === viewName);
+    });
+
+    if (this.viewCity) this.viewCity.classList.toggle('hidden', viewName !== 'city');
+    if (this.viewDirectory) this.viewDirectory.classList.toggle('hidden', viewName !== 'directory');
+    if (this.viewJamendo) this.viewJamendo.classList.toggle('hidden', viewName !== 'jamendo');
+
+    if (viewName === 'directory' && (!this.radioBrowserStations || this.radioBrowserStations.length === 0)) {
+      this.loadRadioBrowserStations();
+    } else if (viewName === 'jamendo' && (!this.jamendoTracks || this.jamendoTracks.length === 0)) {
+      this.loadJamendoTracks('All');
+    }
+  }
+
+  async loadRadioBrowserFilters() {
+    try {
+      const res = await fetch('/api/v1/radio-browser/filters');
+      if (res.ok) {
+        const data = await res.json();
+        this.radioBrowserFilters = data;
+        if (this.directoryStateSelect && data.states) {
+          this.directoryStateSelect.innerHTML = data.states.map(s => `<option value="${s}">${s === 'All' ? 'All India' : s}</option>`).join('');
+        }
+        if (this.directoryLangSelect && data.languages) {
+          this.directoryLangSelect.innerHTML = data.languages.map(l => `<option value="${l}">${l === 'All' ? 'All Languages' : l}</option>`).join('');
+        }
+      }
+    } catch (e) {
+      console.warn('Could not load directory filters:', e);
+    }
+  }
+
+  async loadRadioBrowserStations() {
+    if (!this.directoryStationsGrid) return;
+    this.directoryStationsGrid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:#888;">Fetching live Indian radio stations...</div>';
+    if (this.directoryResultsCount) this.directoryResultsCount.textContent = 'Discovering stations...';
+
+    const state = this.directoryStateSelect ? this.directoryStateSelect.value : 'All';
+    const language = this.directoryLangSelect ? this.directoryLangSelect.value : 'All';
+    const name = this.directorySearchInput ? this.directorySearchInput.value.trim() : '';
+
+    const params = new URLSearchParams({ limit: '40' });
+    if (state && state !== 'All') params.set('state', state);
+    if (language && language !== 'All') params.set('language', language);
+    if (name) params.set('name', name);
+
+    try {
+      const res = await fetch(`/api/v1/radio-browser/stations?${params.toString()}`);
+      const data = await res.json();
+      this.radioBrowserStations = data.results || [];
+      this.renderRadioBrowserStations(this.radioBrowserStations);
+      if (this.directoryResultsCount) {
+        this.directoryResultsCount.textContent = `${this.radioBrowserStations.length} stations found`;
+      }
+    } catch (err) {
+      console.error('Failed to load Radio Browser stations:', err);
+      this.directoryStationsGrid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:30px;color:#ef4444;">Unable to connect to Radio Browser service. Please try again.</div>';
+    }
+  }
+
+  renderRadioBrowserStations(stations) {
+    if (!this.directoryStationsGrid) return;
+    this.directoryStationsGrid.innerHTML = '';
+
+    if (!stations || stations.length === 0) {
+      if (this.directoryEmptyState) this.directoryEmptyState.classList.remove('hidden');
+      return;
+    }
+    if (this.directoryEmptyState) this.directoryEmptyState.classList.add('hidden');
+
+    stations.forEach(st => {
+      const isPlaying = this.currentSourceType === 'radio-browser' && this.currentStreamItem?.id === st.id && this.audio.isPlaying;
+
+      const card = document.createElement('div');
+      card.className = `directory-station-card ${isPlaying ? 'is-playing' : ''}`;
+      card.innerHTML = `
+        <div class="station-card-top">
+          <div class="station-card-icon">
+            ${st.favicon ? `<img src="${st.favicon}" alt="" onerror="this.remove()">` : '📡'}
+          </div>
+          <div class="station-card-info">
+            <h3 class="station-card-title" title="${st.name}">${st.name}</h3>
+            <p class="station-card-location">📍 ${st.state || 'All India'}</p>
+          </div>
+        </div>
+
+        <div class="station-tags-row">
+          <span class="badge-station-tag lang">${st.language || 'Indian'}</span>
+          <span class="badge-station-tag codec">${st.codec || 'MP3'} ${st.bitrate ? st.bitrate + 'k' : ''}</span>
+          <span class="badge-station-tag">Third-Party Stream</span>
+        </div>
+
+        <div class="station-card-footer">
+          <span class="station-votes-pill">⭐ ${st.votes || 0} votes</span>
+          <button class="btn-tune-station ${isPlaying ? 'playing' : ''}">
+            ${isPlaying ? '■ Stop' : '▶ Tune In'}
+          </button>
+        </div>
+      `;
+
+      card.querySelector('.btn-tune-station').addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (isPlaying) {
+          this.togglePlayPause();
+        } else {
+          this.tuneIntoRadioBrowserStation(st);
+        }
+      });
+
+      card.addEventListener('click', () => {
+        if (!isPlaying) {
+          this.tuneIntoRadioBrowserStation(st);
+        }
+      });
+
+      this.directoryStationsGrid.appendChild(card);
+    });
+  }
+
+  async loadJamendoStatus() {
+    try {
+      const res = await fetch('/api/v1/jamendo/tracks?limit=1');
+      if (res.ok) {
+        const data = await res.json();
+        this.jamendoStatus = data;
+        if (data.hasCredential && data.status === 'ok') {
+          if (this.jamendoStatusTitle) this.jamendoStatusTitle.textContent = 'Jamendo API v3.0 Connected';
+          if (this.jamendoStatusDesc) this.jamendoStatusDesc.textContent = 'Full catalog access enabled with automatic Creative Commons license inspection.';
+          if (this.jamendoStatusIcon) this.jamendoStatusIcon.textContent = '✅';
+        } else {
+          if (this.jamendoStatusTitle) this.jamendoStatusTitle.textContent = 'Jamendo Demo Mode (Curated CC Music)';
+          if (this.jamendoStatusDesc) this.jamendoStatusDesc.textContent = 'Showing verified royalty-free demo tracks. To search the full Jamendo catalog, set JAMENDO_CLIENT_ID in .env.';
+          if (this.jamendoStatusIcon) this.jamendoStatusIcon.textContent = 'ℹ️';
+        }
+      }
+    } catch (e) {
+      console.warn('Could not check Jamendo status:', e);
+    }
+  }
+
+  async loadJamendoTracks(tag = 'All', query = '') {
+    if (!this.jamendoTracksGrid) return;
+    this.jamendoTracksGrid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:#888;">Fetching Creative Commons tracks from Jamendo...</div>';
+    if (this.jamendoResultsCount) this.jamendoResultsCount.textContent = 'Loading music...';
+
+    let endpoint = '/api/v1/jamendo/tracks?limit=24';
+    if (query) {
+      endpoint = `/api/v1/jamendo/search?q=${encodeURIComponent(query)}&limit=24`;
+    }
+    if (tag && tag !== 'All') {
+      endpoint += `&tag=${encodeURIComponent(tag)}`;
+    }
+
+    try {
+      const res = await fetch(endpoint);
+      const data = await res.json();
+      this.jamendoTracks = data.results || [];
+      this.renderJamendoTracks(this.jamendoTracks);
+      if (this.jamendoResultsCount) {
+        this.jamendoResultsCount.textContent = `${this.jamendoTracks.length} tracks available`;
+      }
+    } catch (err) {
+      console.error('Failed to load Jamendo tracks:', err);
+      this.jamendoTracksGrid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:30px;color:#ef4444;">Could not load Jamendo library. Please try again.</div>';
+    }
+  }
+
+  renderJamendoTracks(tracks) {
+    if (!this.jamendoTracksGrid) return;
+    this.jamendoTracksGrid.innerHTML = '';
+
+    if (!tracks || tracks.length === 0) {
+      if (this.jamendoEmptyState) this.jamendoEmptyState.classList.remove('hidden');
+      return;
+    }
+    if (this.jamendoEmptyState) this.jamendoEmptyState.classList.add('hidden');
+
+    tracks.forEach(tr => {
+      const isPlaying = this.currentSourceType === 'jamendo' && this.currentStreamItem?.id === tr.id && this.audio.isPlaying;
+      const durationMins = tr.duration ? `${Math.floor(tr.duration / 60)}:${String(tr.duration % 60).padStart(2, '0')}` : 'Demo';
+
+      const card = document.createElement('div');
+      card.className = `jamendo-card ${isPlaying ? 'is-playing' : ''}`;
+      card.innerHTML = `
+        <div class="jamendo-art-wrap">
+          <img class="jamendo-art-img" src="${tr.artwork || 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=300'}" alt="${tr.title}" onerror="this.src='https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=300'">
+          <div class="jamendo-play-overlay">
+            <span class="overlay-play-btn">${isPlaying ? '⏸' : '▶'}</span>
+          </div>
+          <span class="jamendo-duration-badge">${durationMins}</span>
+        </div>
+
+        <div class="jamendo-info-box">
+          <h3 class="jamendo-track-name" title="${tr.title}">${tr.title}</h3>
+          <p class="jamendo-artist-name">${tr.artist}</p>
+          <div class="jamendo-license-row">
+            <a class="license-pill" href="${tr.license_ccurl || 'https://creativecommons.org'}" target="_blank" rel="noopener noreferrer" title="View license terms">
+              ⚖️ ${tr.licenseName || 'CC License'}
+            </a>
+            <a class="jamendo-source-link" href="${tr.shareurl || 'https://www.jamendo.com'}" target="_blank" rel="noopener noreferrer">
+              Jamendo ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="jamendo-card-actions">
+          ${tr.isPlayable ? `
+            <button class="btn-play-jamendo">
+              ${isPlaying ? '■ Pause Track' : '▶ Play Track'}
+            </button>
+          ` : `
+            <span class="btn-jamendo-unavailable" title="${tr.licenseStatus || 'License restricted'}">
+              🚫 Unavailable
+            </span>
+          `}
+        </div>
+      `;
+
+      if (tr.isPlayable) {
+        card.querySelector('.btn-play-jamendo')?.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (isPlaying) {
+            this.togglePlayPause();
+          } else {
+            this.tuneIntoJamendoTrack(tr);
+          }
+        });
+
+        card.addEventListener('click', () => {
+          if (!isPlaying) {
+            this.tuneIntoJamendoTrack(tr);
+          }
+        });
+      }
+
+      this.jamendoTracksGrid.appendChild(card);
+    });
   }
 
   startVUMeter() {
@@ -1694,13 +2619,67 @@ class TarangApp {
               }
             }
           } else if (payload.event === 'channel:live') {
-            const channel = payload.data.channel;
-            if (channel) {
+            const { channelId, channel } = payload.data || {};
+            const targetId = channelId || channel?.id;
+            let found = false;
+
+            for (const city of this.cities) {
+              const ch = city.channels.find(c => c.id === targetId);
+              if (ch) {
+                ch.isLive = true;
+                found = true;
+                break;
+              }
+            }
+
+            if (!found && channel) {
               const city = this.cities.find(c => c.id === channel.cityId || c.name.toLowerCase() === (payload.data.city || '').toLowerCase());
               if (city && !city.channels.some(c => c.id === channel.id)) {
-                city.channels.unshift(channel);
-                this.renderChannels();
-                this.renderCitiesTuner();
+                city.channels.unshift({
+                  ...channel,
+                  isLive: true,
+                  gradient: channel.gradient || 'linear-gradient(135deg, #ff6600, #ff851a)',
+                  audioUrl: channel.audioUrl || '/audio/bengaluru-namma-morning.mp3'
+                });
+              }
+            }
+
+            // Realtime sort (Live first) & badge update
+            this.renderChannels();
+            this.renderCitiesTuner();
+
+            if (this.currentChannel && this.currentChannel.id === targetId) {
+              this.currentChannel.isLive = true;
+              if (this.playerStatusBadge) {
+                this.playerStatusBadge.textContent = '● LIVE';
+                this.playerStatusBadge.className = 'badge-live-stream is-live';
+              }
+              if (this.playerSourceTag) {
+                this.playerSourceTag.textContent = '🎙️ Tarang Live Broadcast';
+              }
+            }
+          } else if (payload.event === 'channel:offline') {
+            const { channelId } = payload.data || {};
+            for (const city of this.cities) {
+              const ch = city.channels.find(c => c.id === channelId);
+              if (ch) {
+                ch.isLive = false;
+                break;
+              }
+            }
+
+            // Realtime sort & badge update back to AutoDJ
+            this.renderChannels();
+            this.renderCitiesTuner();
+
+            if (this.currentChannel && this.currentChannel.id === channelId) {
+              this.currentChannel.isLive = false;
+              if (this.playerStatusBadge) {
+                this.playerStatusBadge.textContent = 'AutoDJ';
+                this.playerStatusBadge.className = 'badge-live-stream is-autodj';
+              }
+              if (this.playerSourceTag) {
+                this.playerSourceTag.textContent = '📻 Tarang City FM · AutoDJ';
               }
             }
           } else if (payload.event === 'chat:message') {
@@ -1716,6 +2695,302 @@ class TarangApp {
     } catch (e) {
       // Graceful fallback to standalone client
     }
+  }
+
+  async loadBackendCitiesAndChannels() {
+    try {
+      const res = await fetch('/api/v1/cities');
+      const json = await res.json();
+      if (json.success && Array.isArray(json.data)) {
+        for (const cityData of json.data) {
+          const localCity = this.cities.find(c => c.id === cityData.id || c.name.toLowerCase() === cityData.name.toLowerCase());
+          if (localCity) {
+            try {
+              const chRes = await fetch(`/api/v1/cities/${cityData.slug || cityData.id}/channels`);
+              const chJson = await chRes.json();
+              if (chJson.success && Array.isArray(chJson.data)) {
+                chJson.data.forEach(remoteCh => {
+                  const localCh = localCity.channels.find(c => c.id === remoteCh.id);
+                  if (localCh) {
+                    localCh.isLive = Boolean(remoteCh.isLive);
+                    if (remoteCh.listeners) localCh.listeners = remoteCh.listeners;
+                  } else {
+                    localCity.channels.unshift({
+                      ...remoteCh,
+                      gradient: remoteCh.gradient || 'linear-gradient(135deg, #ff6600, #993300)',
+                      audioUrl: remoteCh.audioUrl || '/audio/bengaluru-namma-morning.mp3'
+                    });
+                  }
+                });
+              }
+            } catch (e) {}
+          }
+        }
+        this.renderCitiesTuner();
+        this.renderChannels();
+      }
+    } catch (e) {
+      // Network fallback
+    }
+  }
+
+  /* --------------------------------------------------------------------------
+     AI RJ DAILY SHOW (Daily News, 2 Jokes, Real-time Weather & Song Transition)
+     -------------------------------------------------------------------------- */
+
+  /* --------------------------------------------------------------------------
+     MULTILINGUAL AI FM RADIO JOCKEY BROADCAST ENGINE (5-Step Sequence)
+     -------------------------------------------------------------------------- */
+
+  handleSongCompletionAutoHost() {
+    if (this.airjAutohostCheckbox && !this.airjAutohostCheckbox.checked) {
+      console.log('Auto-host is disabled by listener. Advancing to next station track.');
+      this.playNextStation();
+      return;
+    }
+    const prevSong = this.playerChannelTitleEl?.textContent || '';
+    console.log(`Song completed: "${prevSong}". Triggering 5-step Multilingual AI FM RJ Broadcast!`);
+    this.playAiRjDailyShow({ isAutoTrigger: true, prevSong });
+  }
+
+  async updateAirjBannerForCity(cityId) {
+    const targetCity = cityId || this.activeCityId || 'bengaluru';
+    const lang = this.airjLangSelect?.value || '';
+    try {
+      const url = `/api/v1/ai-rj/daily-show?city=${targetCity}${lang ? `&lang=${lang}` : ''}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      if (data.success) {
+        this.currentAirjData = data;
+        if (this.airjHostLabel) {
+          this.airjHostLabel.textContent = `${data.rjName} · Live FM Presenter (${data.frequency})`;
+        }
+        if (this.airjWeatherText) {
+          const w = data.weather;
+          let icon = '⛅';
+          if (w.condition.toLowerCase().includes('clear')) icon = '☀️';
+          else if (w.condition.toLowerCase().includes('rain')) icon = '🌧️';
+          else if (w.condition.toLowerCase().includes('thunder')) icon = '⛈️';
+          else if (w.condition.toLowerCase().includes('fog') || w.condition.toLowerCase().includes('mist')) icon = '🌫️';
+          if (this.weatherIcon) this.weatherIcon.textContent = icon;
+          this.airjWeatherText.textContent = `${w.temp}°C · ${w.condition} (${w.rainProbability}% Rain)`;
+        }
+        if (this.airjHeadline) {
+          this.airjHeadline.textContent = `${data.city}: ${data.timeLabel} Broadcast in ${data.languageLabel}`;
+        }
+        if (this.airjSnippet) {
+          this.airjSnippet.textContent = `${data.sequence.step1_greeting} Weather: ${data.weather.desc}. Commute: ${data.trafficCorridors?.[0]?.road || 'Major corridors'}. Up Next: ${data.recommendedSong.title}!`;
+        }
+        if (this.airjProviderBadge) {
+          this.airjProviderBadge.textContent = data.provider === 'openai' ? '🤖 OpenAI Engine' : '⚡ Studio FM Engine';
+        }
+        if (this.airjLangSelect && !lang) {
+          this.airjLangSelect.value = data.language;
+        }
+      }
+    } catch (e) {
+      console.warn('Error updating AI RJ banner:', e);
+    }
+  }
+
+  async playAiRjDailyShow({ isAutoTrigger = false, prevSong = '' } = {}) {
+    this.audio.init();
+    this.audio.stopSynth();
+    this.audio.playStaticBurst(0.25);
+
+    if (this.airjBtnLabel) this.airjBtnLabel.textContent = 'Connecting RJ...';
+
+    const lang = this.airjLangSelect?.value || '';
+    const currentPrevSong = prevSong || this.playerChannelTitleEl?.textContent || '';
+    let data = null;
+
+    try {
+      const url = `/api/v1/ai-rj/daily-show?city=${this.activeCityId}&lang=${lang}&prevSong=${encodeURIComponent(currentPrevSong)}`;
+      const res = await fetch(url);
+      data = await res.json();
+      this.currentAirjData = data;
+    } catch (e) {
+      console.warn('Failed to fetch AI RJ show:', e);
+    }
+
+    if (this.airjBtnLabel) this.airjBtnLabel.textContent = 'Start AI RJ Broadcast';
+
+    if (!data || !data.success) {
+      alert('Unable to load AI RJ show. Please ensure backend is running.');
+      return;
+    }
+
+    // Open Modal
+    if (this.airjModal) this.airjModal.classList.remove('hidden');
+    if (this.airjModalCityTag) this.airjModalCityTag.textContent = `${data.city}, ${data.state} (${data.frequency})`;
+    if (this.airjModalLangTag) this.airjModalLangTag.textContent = data.languageLabel;
+    if (this.airjModalEngineTag) {
+      this.airjModalEngineTag.textContent = data.provider === 'openai' ? '🤖 OpenAI Engine' : '⚡ Studio FM Engine';
+    }
+    if (this.airjModalHostTitle) this.airjModalHostTitle.textContent = `${data.rjName} Live On Air`;
+
+    const w = data.weather;
+    let icon = '⛅';
+    if (w.condition.toLowerCase().includes('clear')) icon = '☀️';
+    else if (w.condition.toLowerCase().includes('rain')) icon = '🌧️';
+    else if (w.condition.toLowerCase().includes('thunder')) icon = '⛈️';
+    else if (w.condition.toLowerCase().includes('fog') || w.condition.toLowerCase().includes('mist')) icon = '🌫️';
+
+    if (this.airjModalWeatherIcon) this.airjModalWeatherIcon.textContent = icon;
+    if (this.airjModalTemp) this.airjModalTemp.textContent = `${w.temp}°C`;
+    if (this.airjModalCond) this.airjModalCond.textContent = w.condition;
+    if (this.airjModalWeatherMeta) {
+      this.airjModalWeatherMeta.textContent = `Wind ${w.windSpeed} km/h · Humidity ${w.humidity}% · Rain Prob ${w.rainProbability}% · Real-Time`;
+    }
+    if (this.airjModalWeatherAlert) {
+      if (w.alert) {
+        this.airjModalWeatherAlert.textContent = w.alert;
+        this.airjModalWeatherAlert.classList.remove('hidden');
+      } else {
+        this.airjModalWeatherAlert.classList.add('hidden');
+      }
+    }
+
+    // Populate 5 Broadcast Steps
+    if (this.airjModalStep1) this.airjModalStep1.textContent = data.sequence.step1_greeting;
+    if (this.airjModalStep2) this.airjModalStep2.textContent = data.sequence.step2_weather;
+    if (this.airjModalStep3) this.airjModalStep3.textContent = data.sequence.step3_traffic;
+    if (this.airjModalStep4) this.airjModalStep4.textContent = data.sequence.step4_joke;
+    if (this.airjModalStep5) this.airjModalStep5.textContent = data.sequence.step5_songIntro;
+    if (this.airjModalSongTitle) {
+      this.airjModalSongTitle.textContent = `${data.recommendedSong.title} (${data.recommendedSong.artist})`;
+    }
+
+    this.isAiRjShowActive = true;
+    this.speakAiRjShowSequence(data);
+  }
+
+  async speakAiRjShowSequence(data) {
+    if (!this.isAiRjShowActive) return;
+
+    const updateStatus = (text, subtitle) => {
+      if (this.airjSpeechStatus) this.airjSpeechStatus.textContent = text;
+      if (this.airjLiveSubtitle) this.airjLiveSubtitle.textContent = `"${subtitle}"`;
+    };
+
+    const clearHighlights = () => {
+      document.querySelectorAll('.airj-segment-card').forEach(el => el.classList.remove('active-speaking'));
+    };
+
+    const voiceCode = data.speechVoiceCode || 'kn-IN';
+
+    // Sequence 1/5: Song Completion Greeting
+    clearHighlights();
+    if (this.segStep1Card) this.segStep1Card.classList.add('active-speaking');
+    updateStatus(`🎧 1/5 Greeting: ${data.rjName} welcoming ${data.city}...`, data.sequence.step1_greeting);
+    await this.audio.speakSentence(data.sequence.step1_greeting, voiceCode);
+    if (!this.isAiRjShowActive) return;
+
+    // Sequence 2/5: Real-Time Weather Update
+    clearHighlights();
+    if (this.segStep2Card) this.segStep2Card.classList.add('active-speaking');
+    updateStatus(`⛅ 2/5 Live Weather Update (${data.weather.temp}°C, ${data.weather.condition})...`, data.sequence.step2_weather);
+    await this.audio.speakSentence(data.sequence.step2_weather, voiceCode);
+    if (!this.isAiRjShowActive) return;
+
+    // Sequence 3/5: Local Traffic Update
+    clearHighlights();
+    if (this.segStep3Card) this.segStep3Card.classList.add('active-speaking');
+    updateStatus(`🚗 3/5 City Commute & Traffic Update...`, data.sequence.step3_traffic);
+    await this.audio.speakSentence(data.sequence.step3_traffic, voiceCode);
+    if (!this.isAiRjShowActive) return;
+
+    // Sequence 4/5: Location-Specific Comedian Joke
+    clearHighlights();
+    if (this.segStep4Card) this.segStep4Card.classList.add('active-speaking');
+    updateStatus(`😂 4/5 Local Comedian Joke...`, data.sequence.step4_joke);
+    await this.audio.speakSentence(data.sequence.step4_joke, voiceCode);
+    if (!this.isAiRjShowActive) return;
+
+    // Trigger soundboard laugh track drop
+    this.audio.playLaughTrack();
+    await new Promise(r => setTimeout(r, 1200));
+    if (!this.isAiRjShowActive) return;
+
+    // Sequence 5/5: Next Song Introduction
+    clearHighlights();
+    if (this.segStep5Card) this.segStep5Card.classList.add('active-speaking');
+    updateStatus(`🎵 5/5 Introducing Next Song: ${data.recommendedSong.title}...`, data.sequence.step5_songIntro);
+    await this.audio.speakSentence(data.sequence.step5_songIntro, voiceCode);
+    if (!this.isAiRjShowActive) return;
+
+    // Completed 5-step sequence -> Smooth transition into the next song!
+    updateStatus('Now Spinning Curated Track!', `Now playing: ${data.recommendedSong.title}`);
+    await this.transitionToWeatherSong(data);
+    setTimeout(() => {
+      if (this.airjModal) this.airjModal.classList.add('hidden');
+    }, 1500);
+  }
+
+  async transitionToWeatherSong(data) {
+    this.isAiRjShowActive = false;
+    const song = data.recommendedSong;
+
+    // Update bottom player
+    this.playerIdleEl.classList.add('hidden');
+    this.playerActiveEl.classList.remove('hidden');
+
+    if (this.playerSourceTag) {
+      this.playerSourceTag.className = 'player-source-tag';
+      this.playerSourceTag.textContent = `🎙️ AI RJ On-Air Pick · ${data.city} · ${data.weather.temp}°C ${data.weather.condition}`;
+    }
+    if (this.playerStatusBadge) {
+      this.playerStatusBadge.textContent = '● ON-AIR PICK';
+      this.playerStatusBadge.className = 'badge-live-stream is-live';
+    }
+
+    this.playerChannelTitleEl.textContent = song.title;
+    this.playerRjInfoEl.textContent = `Curated for ${data.city} (${data.languageLabel}) · Hosted by ${data.rjName}`;
+    this.playerCityLabelEl.textContent = data.city;
+    this.playerThumbEl.style.background = 'linear-gradient(135deg, #ff6600, #ff851a)';
+
+    this.iconPlay.classList.add('hidden');
+    this.iconPause.classList.remove('hidden');
+
+    this.resetTimer();
+
+    // Play next song
+    await this.audio.playExternalStream(song.audioUrl, (state) => {
+      if (state === 'error') {
+        this.audio.startStationMusicStream();
+      }
+    });
+
+    if (this.audio.streamAudio) {
+      // Allow track to play to completion so ended event will trigger the next broadcast
+      this.audio.streamAudio.loop = false;
+    }
+
+    // Celebration burst
+    this.spawnFloatingReaction('🎵');
+    setTimeout(() => this.spawnFloatingReaction('⛅'), 400);
+    setTimeout(() => this.spawnFloatingReaction('🔥'), 800);
+  }
+
+  skipAiRjToSong() {
+    this.isAiRjShowActive = false;
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+    if (this.currentAirjData) {
+      this.transitionToWeatherSong(this.currentAirjData);
+    }
+    if (this.airjModal) {
+      this.airjModal.classList.add('hidden');
+    }
+  }
+
+  stopAiRjShow() {
+    this.isAiRjShowActive = false;
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+    if (this.airjModal) this.airjModal.classList.add('hidden');
   }
 }
 
