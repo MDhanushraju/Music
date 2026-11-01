@@ -77,7 +77,7 @@
         "Talk",
         "Live On Air"
       ],
-      "listeners": 119,
+      "listeners": 125,
       "isLive": true,
       "gradient": "linear-gradient(135deg, #ff2d70, #7928ca)",
       "talkScript": "Welcome to The Indie Express with RJ on Tarang Bengaluru! RJ RJ Alwin is live right now!",
@@ -94,7 +94,7 @@
         "Indie",
         "Live On Air"
       ],
-      "listeners": 103,
+      "listeners": 101,
       "isLive": true,
       "gradient": "linear-gradient(135deg, #ff2d70, #7928ca)",
       "talkScript": "Welcome to Prod Radio Launch on Tarang Bengaluru! RJ RJ Alwin is live right now!",
@@ -112,7 +112,7 @@
         "Indie",
         "Morning Show"
       ],
-      "listeners": 1323,
+      "listeners": 1325,
       "isLive": true,
       "gradient": "linear-gradient(135deg, #ff6600, #993300)",
       "talkScript": "Good morning Bengaluru! This is RJ Kavya on Tarang Namma Morning 91.1. Grab your piping hot filter coffee, traffic on Outer Ring Road is moving slow as usual, but we've got some lovely indie Kannada vibes lined up for you!"
