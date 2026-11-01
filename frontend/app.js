@@ -3,6 +3,19 @@
  * Interactive Audio Engine, RJ Studio, & Live Stream Simulation
  */
 
+// Cloud Backend URL Connector (Auto-proxies API calls when hosted on GitHub Pages or custom domain)
+const originalFetch = window.fetch;
+window.fetch = function(resource, init) {
+  if (typeof resource === 'string' && resource.startsWith('/api')) {
+    const customBackend = localStorage.getItem('tarang_backend_url') || window.TARANG_BACKEND_URL;
+    if (customBackend) {
+      resource = `${customBackend.replace(/\/$/, '')}${resource}`;
+    }
+  }
+  return originalFetch.apply(this, [resource, init]);
+};
+
+
 // Initial Data: Cities and their live channels
 const CITIES_DATA = [
   {
@@ -965,6 +978,7 @@ class TarangApp {
     this.settingAutoDucking = document.getElementById('setting-auto-ducking');
     this.settingVisualizer = document.getElementById('setting-visualizer');
     this.settingHomeCity = document.getElementById('setting-home-city');
+    this.settingBackendUrl = document.getElementById('setting-backend-url');
     this.settingLiveAlerts = document.getElementById('setting-live-alerts');
     this.settingFloatingReactions = document.getElementById('setting-floating-reactions');
     this.streamBitrateBadge = document.querySelector('.stream-bitrate');
@@ -1981,6 +1995,18 @@ class TarangApp {
         const cityDisplay = document.getElementById('profile-city-display');
         if (cityDisplay && cityObj) {
           cityDisplay.textContent = `${cityObj.name} (${cityObj.freq})`;
+        }
+      });
+    }
+
+    if (this.settingBackendUrl) {
+      this.settingBackendUrl.value = localStorage.getItem('tarang_backend_url') || '';
+      this.settingBackendUrl.addEventListener('change', (e) => {
+        const val = e.target.value.trim();
+        if (val) {
+          localStorage.setItem('tarang_backend_url', val);
+        } else {
+          localStorage.removeItem('tarang_backend_url');
         }
       });
     }
