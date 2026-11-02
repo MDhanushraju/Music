@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarang - Every city has its own radio</title>
+  <meta name="description" content="Pick your city, tune in to RJs and creators talking and playing music live. No frequency, no signal, just the stream.">
+  <!-- Google Fonts: Plus Jakarta Sans for clean modern typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="./assets/main-O6pYbjyr.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="stylesheet" crossorigin href="./assets/style-jpzXCJSJ.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Navigation / Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <!-- Top Left Profile Trigger Button (Spotify-style) -->
+        <button class="btn-profile-trigger" id="btn-open-profile" title="Open Profile & Settings" aria-label="Open Profile and Settings">
+          <div class="profile-avatar-thumb">
+            <span class="avatar-letter">A</span>
+            <span class="avatar-status-dot"></span>
+          </div>
+          <span class="profile-trigger-label">Profile</span>
+        </button>
+
+        <a href="#" class="brand-logo" id="brand-logo">
+          <div class="logo-wave-icon">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 16C4 16 7 8 10 8C13 8 14 24 17 24C20 24 21 12 24 12C27 12 28 16 28 16" stroke="url(#paint0_linear)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="paint0_linear" x1="4" y1="8" x2="28" y2="24" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#FFA826"/>
+                  <stop offset="0.5" stop-color="#FF6600"/>
+                  <stop offset="1" stop-color="#E54600"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <span class="brand-name">tarang</span>
+        </a>
+      </div>
+
+      <div class="header-center">
+        <!-- Navigation Tabs: Tarang City Radio, Indian Radio Directory, Jamendo Music -->
+        <nav class="main-segmented-nav" id="main-nav-tabs" aria-label="Main Navigation">
+          <button class="nav-pill active" id="tab-nav-city" data-view="city">
+            <span class="nav-pill-icon">📻</span>
+            <span class="nav-pill-label">City Radio</span>
+          </button>
+          <button class="nav-pill" id="tab-nav-directory" data-view="directory">
+            <span class="nav-pill-icon">📡</span>
+            <span class="nav-pill-label">Indian Radio Directory</span>
+            <span class="pill-tag third-party">100+ Live</span>
+          </button>
+          <button class="nav-pill" id="tab-nav-jamendo" data-view="jamendo">
+            <span class="nav-pill-icon">🎵</span>
+            <span class="nav-pill-label">Jamendo Library</span>
+            <span class="pill-tag cc">Creative Commons</span>
+          </button>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <div class="quick-status-badge" id="global-live-counter" title="Active listeners across all hubs">
+          <span class="pulse-indicator"></span>
+          <span id="total-listeners-count">18.4k</span> listening
+        </div>
+        <a href="showcase.html" class="btn-ai-video" id="btn-watch-showcase" title="Watch AI Video Overview with Voice">
+          <span>🎬 AI Video</span>
+        </a>
+        <button class="btn-go-live" id="btn-open-studio">
+          <span class="dot-live"></span>
+          <span>Go live</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Area with 3 Distinct Views -->
+    <main class="main-content">
+      
+      <!-- VIEW 1: Tarang City Radio Hub -->
+      <div class="main-view active" id="view-city">
+        <!-- Hero Section -->
+        <section class="hero-section">
+          <div class="hero-copy">
+            <div class="hero-eyebrow">
+              <span class="eyebrow-dot"></span>
+              <span>LIVE FREQUENCY STREAMING ACROSS INDIA</span>
+            </div>
+            <h1 class="hero-title">Every city has its<br><span class="text-gradient">own live radio.</span></h1>
+            <p class="hero-subtitle">Pick your city hub, tune in to creator RJs broadcasting live talk and music. No antenna, no signal loss, just pure high-fidelity radio vibe.</p>
+            <div class="hero-stats-row">
+              <div class="hero-stat"><strong id="stat-active-cities">8</strong> <span>City Hubs</span></div>
+              <div class="hero-stat-sep">/</div>
+              <div class="hero-stat"><strong>16+</strong> <span>Live Channels</span></div>
+              <div class="hero-stat-sep">/</div>
+              <div class="hero-stat"><strong id="stat-active-listeners">18.4k</strong> <span>Active Listeners</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- City Tuner Carousel Section -->
+        <section class="tuner-wrapper">
+          <div class="tuner-header-bar">
+            <div class="tuner-console-left">
+              <span class="tuner-indicator-led"></span>
+              <span class="tuner-console-label">ANALOG / DIGITAL CITY FREQUENCY TUNER</span>
+            </div>
+            <span class="tuner-instruction-hint">Click a city card or drag to tune frequency</span>
+          </div>
+
+          <div class="tuner-track-container" id="tuner-track-container">
+            <div class="tuner-cards" id="tuner-cards-list">
+              <!-- Dynamically populated city cards -->
+            </div>
+          </div>
+
+          <!-- Frequency Needle & Marks Rail -->
+          <div class="tuner-rail-container">
+            <div class="tuner-dial-backlight"></div>
+            <div class="tuner-freq-numbers">
+              <span>88.0</span>
+              <span>91.1</span>
+              <span>93.5</span>
+              <span>95.0</span>
+              <span>98.3</span>
+              <span>101.2</span>
+              <span>104.0</span>
+              <span>106.8</span>
+              <span>108.0 <small>MHz</small></span>
+            </div>
+            <div class="tuner-scale-ticks" id="tuner-ticks">
+              <!-- Scale marks rendered in JS -->
+            </div>
+            <div class="tuner-track-line">
+              <div class="tuner-needle" id="tuner-needle">
+                <span class="needle-glow-line"></span>
+                <span class="needle-triangle"></span>
+                <span class="needle-freq-tag" id="needle-freq-display">91.1</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- City Stations Feed Section -->
+        <section class="stations-section">
+          <div class="stations-header">
+            <div class="stations-title-group">
+              <div class="city-title-row">
+                <h2 class="city-on-air-heading" id="current-city-heading">Bengaluru on air</h2>
+                <span class="live-dot-pulse"></span>
+              </div>
+              <span class="city-frequency-badge" id="current-city-freq">91.1 MHz Stream</span>
+            </div>
+
+            <!-- Filter Pills -->
+            <div class="filter-pills" id="feed-filters">
+              <button class="filter-pill active" data-filter="all">All Channels</button>
+              <button class="filter-pill" data-filter="live">● Live now</button>
+              <button class="filter-pill" data-filter="subscribed">♥ Subscribed</button>
+            </div>
+          </div>
+
+          <!-- AI RJ Multilingual Live Show Feature Card -->
+          <div class="airj-live-banner" id="airj-live-banner">
+            <div class="airj-banner-badge-row">
+              <span class="airj-pill-tag">
+                <span class="live-beacon"></span>
+                <span>🎙️ MULTILINGUAL FM RADIO JOCKEY</span>
+              </span>
+              <span class="airj-weather-live-pill" id="airj-weather-live-pill">
+                <span class="weather-icon" id="weather-icon">⛅</span>
+                <span id="airj-weather-text">26°C · Partly Cloudy</span>
+                <span class="realtime-dot" title="Live Weather Sensor">● Real-time</span>
+              </span>
+              <div class="airj-lang-selector-wrap">
+                <label for="airj-lang-select" class="airj-lang-label">🌐 Language:</label>
+                <select id="airj-lang-select" class="airj-lang-select" title="Choose RJ Broadcast Language">
+                  <option value="kannada">Kannada (ಕನ್ನಡ)</option>
+                  <option value="telugu">Telugu (తెలుగు)</option>
+                  <option value="tamil">Tamil (தமிழ்)</option>
+                  <option value="hindi">Hindi (हिन्दी)</option>
+                  <option value="malayalam">Malayalam (മലയാളം)</option>
+                  <option value="marathi">Marathi (मराठी)</option>
+                  <option value="bengali">Bengali (বাংলা)</option>
+                  <option value="punjabi">Punjabi (ਪੰਜਾਬੀ)</option>
+                  <option value="gujarati">Gujarati (ગુજરાતી)</option>
+                  <option value="english">English (Indian FM)</option>
+                </select>
+              </div>
+              <label class="airj-autohost-toggle" title="Automatically trigger RJ broadcast whenever a song finishes">
+                <input type="checkbox" id="airj-autohost-checkbox" checked>
+                <span class="autohost-slider"></span>
+                <span class="autohost-text">Auto-Host on Song End</span>
+              </label>
+            </div>
+            <div class="airj-content-grid">
+              <div class="airj-details">
+                <div class="airj-host-row">
+                  <span class="airj-mic-icon">🎙️</span>
+                  <span class="airj-host-label" id="airj-host-label">RJ Kavya · Live FM Presenter</span>
+                  <span class="airj-provider-badge" id="airj-provider-badge">🤖 OpenAI + Real Weather</span>
+                </div>
+                <h3 class="airj-headline" id="airj-headline">Live FM Broadcast: Greeting, Weather, Traffic, Comedy & Song Segue</h3>
+                <p class="airj-snippet" id="airj-snippet">Hear your city's professional RJ welcome listeners, read live local weather & traffic choke points, share a witty standup laugh, and smoothly introduce the next track in your native language!</p>
+              </div>
+              <div class="airj-action-area">
+                <button class="btn-start-airj-show" id="btn-start-airj-show">
+                  <span class="airj-btn-play-icon">▶</span>
+                  <span id="airj-btn-label">Start AI RJ Broadcast</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Genre Quick Bar -->
+          <div class="genre-tags-bar" id="genre-filters">
+            <button class="genre-chip active" data-genre="all">✨ All Vibes</button>
+            <button class="genre-chip" data-genre="Talk">🎙️ Talk & Banter</button>
+            <button class="genre-chip" data-genre="Indie">🎸 Indie & Folk</button>
+            <button class="genre-chip" data-genre="Bollywood">🎶 Bollywood & Retro</button>
+            <button class="genre-chip" data-genre="Morning Show">☕ Morning Shows</button>
+            <button class="genre-chip" data-genre="Late Night">🌙 Late Night</button>
+            <button class="genre-chip" data-genre="Comedy">😂 Comedy & Satire</button>
+          </div>
+
+          <!-- Channel Cards Grid -->
+          <div class="channels-grid" id="channels-list">
+            <!-- Dynamically generated channel cards -->
+          </div>
+
+          <!-- Empty State (if filter yields no results) -->
+          <div class="empty-state hidden" id="empty-state">
+            <div class="empty-icon">📻</div>
+            <h3 id="empty-title">No broadcasts found</h3>
+            <p id="empty-desc">Try choosing another filter or switch to a different city.</p>
+            <button class="btn-secondary" id="btn-reset-filters">Reset filters</button>
+          </div>
+        </section>
+      </div>
+
+      <!-- VIEW 2: Indian Radio Directory (Radio Browser Integration) -->
+      <div class="main-view hidden" id="view-directory">
+        <section class="directory-hero-section">
+          <div class="directory-header-row">
+            <div>
+              <div class="section-tag-pill third-party-pill">
+                <span>📡 RADIO BROWSER INTEGRATION</span>
+                <span>OPEN DIRECTORY</span>
+              </div>
+              <h2 class="section-display-title">Indian Radio Directory</h2>
+              <p class="section-display-sub">Discover and tune into public Indian radio stations indexed by the community Radio Browser directory. Filter across languages and states.</p>
+            </div>
+          </div>
+
+          <!-- Third-Party Notice / Disclaimer Banner -->
+          <div class="disclaimer-banner">
+            <div class="disclaimer-icon">ℹ️</div>
+            <div class="disclaimer-text">
+              <strong>Third-Party Content Disclaimer:</strong> These stations are community-curated streams discovered via the public Radio Browser API. Streams originate directly from external broadcast servers and are not hosted, archived, or rebroadcast by Tarang. Stream uptime, codec compatibility, and licensing are governed by the respective station operators.
+            </div>
+          </div>
+
+          <!-- Filter & Search Toolbar -->
+          <div class="directory-toolbar">
+            <div class="toolbar-search-wrap">
+              <span class="search-glyph">🔍</span>
+              <input type="text" id="directory-search-input" class="directory-search-input" placeholder="Search station by name (e.g. Vividh Bharati, Mirchi, Gold)...">
+            </div>
+
+            <div class="toolbar-filters-group">
+              <div class="filter-dropdown-wrap">
+                <label for="directory-state-select">State / Region:</label>
+                <select id="directory-state-select" class="styled-select">
+                  <option value="All">All India</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Kerala">Kerala</option>
+                  <option value="West Bengal">West Bengal</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Punjab">Punjab</option>
+                  <option value="Gujarat">Gujarat</option>
+                  <option value="Goa">Goa</option>
+                </select>
+              </div>
+
+              <div class="filter-dropdown-wrap">
+                <label for="directory-lang-select">Language:</label>
+                <select id="directory-lang-select" class="styled-select">
+                  <option value="All">All Languages</option>
+                  <option value="Hindi">Hindi</option>
+                  <option value="Kannada">Kannada</option>
+                  <option value="Tamil">Tamil</option>
+                  <option value="Telugu">Telugu</option>
+                  <option value="Malayalam">Malayalam</option>
+                  <option value="Marathi">Marathi</option>
+                  <option value="Bengali">Bengali</option>
+                  <option value="Punjabi">Punjabi</option>
+                  <option value="English">English</option>
+                </select>
+              </div>
+
+              <button class="btn-refresh-directory" id="directory-btn-refresh" title="Refresh Stations">
+                <span>↻ Refresh</span>
+              </button>
+            </div>
+            
+            <!-- Quick State Filter Chips -->
+            <div class="directory-quick-chips" id="directory-quick-chips">
+              <span class="quick-chips-label">Popular Hubs:</span>
+              <button class="dir-chip active" data-state="All">✨ All India</button>
+              <button class="dir-chip" data-state="Maharashtra">Maharashtra</button>
+              <button class="dir-chip" data-state="Delhi">Delhi NCR</button>
+              <button class="dir-chip" data-state="Karnataka">Karnataka</button>
+              <button class="dir-chip" data-state="Tamil Nadu">Tamil Nadu</button>
+              <button class="dir-chip" data-state="Kerala">Kerala</button>
+              <button class="dir-chip" data-state="West Bengal">West Bengal</button>
+              <button class="dir-chip" data-state="Punjab">Punjab</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Directory Stations Grid -->
+        <section class="directory-stations-section">
+          <div class="directory-meta-bar">
+            <span id="directory-results-count" class="results-count-tag">Loading Indian stations...</span>
+            <span class="radio-browser-credit">
+              Directory data provided by <a href="https://www.radio-browser.info/" target="_blank" rel="noopener noreferrer">Radio-Browser.info</a>
+            </span>
+          </div>
+
+          <div class="stations-grid" id="directory-stations-grid">
+            <!-- Dynamically populated station cards -->
+          </div>
+
+          <!-- Directory Empty State -->
+          <div class="empty-state hidden" id="directory-empty-state">
+            <div class="empty-icon">📡</div>
+            <h3>No stations match your criteria</h3>
+            <p>Try clearing filters or search terms to see all available Indian streams.</p>
+            <button class="btn-secondary" id="btn-reset-directory-filters">Show All Indian Stations</button>
+          </div>
+        </section>
+      </div>
+
+      <!-- VIEW 3: Jamendo Music & AutoDJ Library -->
+      <div class="main-view hidden" id="view-jamendo">
+        <section class="jamendo-hero-section">
+          <div class="jamendo-header-row">
+            <div>
+              <div class="section-tag-pill cc-pill">
+                <span>🎵 JAMENDO API v3.0 INTEGRATION</span>
+                <span>CREATIVE COMMONS LICENSED</span>
+              </div>
+              <h2 class="section-display-title">Jamendo Music Library & AutoDJ</h2>
+              <p class="section-display-sub">Search and stream independent music powered by Jamendo API v3.0. Each track's Creative Commons license is automatically verified before playback to ensure clearance for non-commercial demo streaming.</p>
+            </div>
+          </div>
+
+          <!-- Jamendo Credential & Demo Mode Info Card -->
+          <div class="jamendo-status-card" id="jamendo-status-box">
+            <div class="jamendo-status-left">
+              <span class="status-icon-pill" id="jamendo-status-icon">🔑</span>
+              <div>
+                <strong id="jamendo-status-title">Jamendo API Connection Status</strong>
+                <p id="jamendo-status-desc" style="font-size:0.8rem;color:#aaa;margin-top:2px;">Checking Jamendo credentials in .env...</p>
+              </div>
+            </div>
+            <div class="jamendo-status-right">
+              <a href="https://developer.jamendo.com/v3.0" target="_blank" rel="noopener noreferrer" class="btn-jamendo-docs">
+                <span>Jamendo API Docs ↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Search & Genre Filter Bar -->
+          <div class="jamendo-toolbar">
+            <div class="toolbar-search-wrap">
+              <span class="search-glyph">🔍</span>
+              <input type="text" id="jamendo-search-input" class="directory-search-input" placeholder="Search indie songs, lo-fi beats, ambient ragas on Jamendo...">
+            </div>
+
+            <!-- Jamendo Genre Chips -->
+            <div class="genre-tags-bar" id="jamendo-genre-chips" style="margin-top:10px;">
+              <button class="genre-chip active" data-jamendo-genre="All">✨ All Genres</button>
+              <button class="genre-chip" data-jamendo-genre="Indie">🎸 Indie</button>
+              <button class="genre-chip" data-jamendo-genre="Lo-Fi">☕ Lo-Fi</button>
+              <button class="genre-chip" data-jamendo-genre="Acoustic">🪕 Acoustic</button>
+              <button class="genre-chip" data-jamendo-genre="Ambient">🌙 Ambient</button>
+              <button class="genre-chip" data-jamendo-genre="World">🌏 World / Desi</button>
+              <button class="genre-chip" data-jamendo-genre="Pop">⭐ Pop</button>
+              <button class="genre-chip" data-jamendo-genre="Electronic">⚡ Electronic</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Jamendo Tracks Grid -->
+        <section class="jamendo-tracks-section">
+          <div class="directory-meta-bar">
+            <span id="jamendo-results-count" class="results-count-tag">Loading Jamendo tracks...</span>
+            <span class="radio-browser-credit">
+              Music sourced from <a href="https://www.jamendo.com/" target="_blank" rel="noopener noreferrer">Jamendo Music</a> under Creative Commons licenses
+            </span>
+          </div>
+
+          <div class="jamendo-cards-grid" id="jamendo-tracks-grid">
+            <!-- Dynamically populated Jamendo track cards -->
+          </div>
+
+          <!-- Jamendo Empty State -->
+          <div class="empty-state hidden" id="jamendo-empty-state">
+            <div class="empty-icon">🎵</div>
+            <h3>No Jamendo tracks found</h3>
+            <p>Try searching for a different artist or genre keyword.</p>
+            <button class="btn-secondary" id="btn-reset-jamendo-search">Reset Search</button>
+          </div>
+        </section>
+      </div>
+
+    </main>
+
+    <!-- Floating Reactions Animation Overlay -->
+    <div class="floating-reactions-layer" id="reactions-layer"></div>
+
+    <!-- Autoplay blocked recovery alert -->
+    <div class="autoplay-alert-banner hidden" id="autoplay-banner">
+      <div class="autoplay-banner-inner">
+        <span>⚠️ Browser paused audio autoplay. Click to unmute and resume stream:</span>
+        <button class="btn-resume-playback" id="btn-resume-autoplay">▶ Resume Playback</button>
+      </div>
+    </div>
+
+    <!-- Bottom Sticky Player Bar -->
+    <footer class="bottom-player-bar" id="bottom-player">
+      <!-- Inactive State -->
+      <div class="player-inactive-state" id="player-idle-content">
+        <div class="idle-text-wrapper">
+          <div class="idle-visual-pulse">
+            <span class="idle-antenna-icon">📻</span>
+            <div class="idle-eq-preview">
+              <span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="idle-text-group">
+            <span class="idle-main-title">Ready to Stream</span>
+            <span class="idle-message">Pick a city hub, discover 100+ live Indian stations, or stream Jamendo CC music.</span>
+          </div>
+        </div>
+        <button class="btn-quick-tune" id="btn-quick-tune">
+          <span>🎲 Quick Tune</span>
+        </button>
+      </div>
+
+      <!-- Active Playing State -->
+      <div class="player-active-state hidden" id="player-active-content">
+        <div class="player-left">
+          <div class="player-thumb" id="player-thumb">
+            <span class="player-thumb-icon" id="player-thumb-icon">📻</span>
+            <div class="player-thumb-pulse"></div>
+          </div>
+          <div class="player-meta">
+            <!-- Source Tag Badge (Tarang FM / Third-Party Radio / Jamendo CC) -->
+            <div class="player-source-row">
+              <span class="player-source-tag" id="player-source-tag">📻 Tarang City FM</span>
+              <span class="badge-live-stream" id="player-status-badge">● LIVE</span>
+            </div>
+            <div class="player-title-row">
+              <h4 class="player-channel-name" id="player-channel-title">Namma Morning</h4>
+            </div>
+            <div class="player-sub-meta">
+              <span class="player-rj-name" id="player-rj-info">RJ Kavya · Kannada & English</span>
+              <span class="bullet-dot">•</span>
+              <span class="player-city-tag" id="player-city-label">Bengaluru</span>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="player-ext-attribution hidden" id="player-attribution-link">License & Source ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="player-center">
+          <div class="player-controls">
+            <button class="ctrl-btn" id="btn-prev-channel" title="Previous Station">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/>
+              </svg>
+            </button>
+
+            <button class="ctrl-btn-play" id="btn-play-pause" title="Play / Pause">
+              <svg id="icon-pause" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+              </svg>
+              <svg id="icon-play" class="hidden" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </button>
+
+            <button class="ctrl-btn" id="btn-next-channel" title="Next Station">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="m6 18 8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+              </svg>
+            </button>
+
+            <!-- Trigger RJ voice talk segment -->
+            <button class="ctrl-btn-voice" id="btn-rj-speak" title="Ask RJ for Live Banter & City Weather">
+              <span class="mic-glyph">🎙️</span>
+              <span class="btn-voice-text">RJ Talk</span>
+            </button>
+          </div>
+
+          <!-- Real-time Audio Spectrum Visualizer Canvas -->
+          <div class="player-visualizer-container">
+            <canvas id="audio-visualizer-canvas" width="240" height="24"></canvas>
+            <div class="visualizer-status">
+              <span class="stream-bitrate">320kbps HD</span>
+              <span class="stream-live-tag" id="live-time-ticker">00:00:00</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="player-right">
+          <!-- Interactive Live Reactions for listeners -->
+          <div class="reactions-dock" id="reactions-dock" title="React live to the RJ">
+            <button class="reaction-trigger-btn" data-reaction="🔥" title="Lit!">🔥</button>
+            <button class="reaction-trigger-btn" data-reaction="❤️" title="Love it!">❤️</button>
+            <button class="reaction-trigger-btn" data-reaction="👏" title="Clap!">👏</button>
+            <button class="reaction-trigger-btn" data-reaction="☕" title="Chai time!">☕</button>
+            <button class="reaction-trigger-btn" data-reaction="🌊" title="Tarang wave!">🌊</button>
+          </div>
+
+          <!-- Volume Controls -->
+          <div class="volume-group">
+            <button class="btn-volume-icon" id="btn-mute-toggle" title="Mute/Unmute">
+              <svg id="icon-vol-high" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+              </svg>
+              <svg id="icon-vol-muted" class="hidden" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3 3 4.27l4.73 4.73H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4 9.91 6.09 12 8.18V4z"/>
+              </svg>
+            </button>
+            <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.8" class="custom-vol-slider" title="Volume">
+          </div>
+
+          <!-- Shoutouts / Chat Drawer Toggle -->
+          <button class="btn-drawer-toggle" id="btn-toggle-chat" title="Live Listener Shoutouts & Chat">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+            </svg>
+            <span class="badge-unread-chat" id="chat-badge-count">3</span>
+          </button>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Live Listener Shoutout & Chat Drawer -->
+    <aside class="chat-drawer closed" id="chat-drawer">
+      <div class="drawer-header">
+        <div class="drawer-title-group">
+          <span class="live-dot-mini"></span>
+          <h3>Live RJ Shoutouts & Banter</h3>
+        </div>
+        <button class="btn-close-drawer" id="btn-close-chat" title="Close chat">×</button>
+      </div>
+
+      <div class="drawer-notice">
+        <span>💬 Messages sent here are heard by the live RJ on air!</span>
+      </div>
+
+      <div class="drawer-messages-list" id="chat-messages-container">
+        <!-- Live messages -->
+      </div>
+
+      <form class="drawer-send-form" id="chat-form">
+        <input type="text" id="chat-input" placeholder="Send a song request or shoutout to RJ..." autocomplete="off">
+        <button type="submit" class="btn-send-chat">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
+      </form>
+    </aside>
+
+    <!-- User Profile & Settings Sidebar (Spotify-style) -->
+    <div class="profile-backdrop hidden" id="profile-backdrop"></div>
+    <aside class="profile-sidebar closed" id="profile-sidebar" aria-label="Profile and Settings Sidebar">
+      <!-- Drawer Header -->
+      <div class="profile-drawer-header">
+        <div class="drawer-header-brand">
+          <span class="profile-drawer-tag">TARANG MEMBER</span>
+          <span class="profile-drawer-status-pill">Active</span>
+        </div>
+        <button class="btn-close-profile" id="btn-close-profile" title="Close Profile">✕</button>
+      </div>
+
+      <!-- Drawer Content Scrollable Area -->
+      <div class="profile-drawer-content">
+        <!-- User Profile Card -->
+        <div class="profile-hero-card">
+          <div class="profile-hero-top">
+            <div class="profile-avatar-large">
+              <span class="avatar-large-text">AJ</span>
+              <span class="avatar-verified-badge" title="Verified Creator">✓</span>
+            </div>
+            <div class="profile-hero-info">
+              <div class="profile-name-row">
+                <h3 class="profile-user-name" id="profile-name-display">Alwin Joseph</h3>
+                <span class="profile-tier-badge">PRO RJ</span>
+              </div>
+              <p class="profile-user-handle">@alwin · Creator & Audiophile</p>
+              <div class="profile-city-badge">
+                <span class="geo-pin">📍</span>
+                <span id="profile-city-display">Bengaluru (91.1 MHz)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stats Grid -->
+          <div class="profile-stats-grid">
+            <div class="stat-box">
+              <span class="stat-number">48h</span>
+              <span class="stat-label">Listening</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number" id="profile-stat-subs">1</span>
+              <span class="stat-label">Subscribed</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number" id="profile-stat-hosted">1</span>
+              <span class="stat-label">Live Shows</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Tabs inside Sidebar -->
+        <div class="profile-nav-tabs">
+          <button class="profile-tab-btn active" data-tab="library">My Stations</button>
+          <button class="profile-tab-btn" data-tab="audio">Audio & Tuning</button>
+          <button class="profile-tab-btn" data-tab="settings">Preferences</button>
+        </div>
+
+        <!-- TAB 1: My Stations / Subscribed Channels -->
+        <div class="profile-tab-pane active" id="pane-library">
+          <div class="section-subheading-row">
+            <h4>Subscribed Frequencies</h4>
+            <span class="subs-count-tag" id="profile-subs-badge">1 Station</span>
+          </div>
+
+          <div class="profile-subs-list" id="profile-subs-container">
+            <!-- Dynamically populated subscribed station cards -->
+          </div>
+
+          <!-- Creator Studio Launcher Banner -->
+          <div class="creator-launcher-card">
+            <div class="creator-launcher-info">
+              <span class="launcher-tag">ON-AIR STUDIO</span>
+              <h4>Host a Live Radio Show</h4>
+              <p>Go live in your city with voice commentary, music mixing & live soundboard.</p>
+            </div>
+            <button class="btn-launch-studio-from-profile" id="btn-profile-launch-studio">
+              <span>🎙️ Go Live Now</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- TAB 2: Audio & Tuning Settings -->
+        <div class="profile-tab-pane hidden" id="pane-audio">
+          <div class="settings-group">
+            <h4 class="settings-group-title">Audio Stream Quality</h4>
+            <div class="bitrate-selector-group">
+              <button class="bitrate-btn" data-bitrate="128">128 kbps<br><small>Normal</small></button>
+              <button class="bitrate-btn" data-bitrate="192">192 kbps<br><small>High</small></button>
+              <button class="bitrate-btn active" data-bitrate="320">320 kbps<br><small>HD Studio</small></button>
+            </div>
+          </div>
+
+          <div class="settings-group">
+            <h4 class="settings-group-title">Tuning Experience</h4>
+
+            <div class="setting-toggle-row">
+              <div class="setting-text">
+                <strong>FM Dial Static Burst</strong>
+                <p>Play authentic analog frequency noise when switching stations</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="setting-static-burst" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="setting-toggle-row">
+              <div class="setting-text">
+                <strong>RJ Voice Auto-Ducking</strong>
+                <p>Automatically lower background music volume while RJ is talking</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="setting-auto-ducking" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="setting-toggle-row">
+              <div class="setting-text">
+                <strong>Spectrum Audio Visualizer</strong>
+                <p>Real-time 24-band frequency spectrum analyser in bottom bar</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="setting-visualizer" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: Preferences & Alerts -->
+        <div class="profile-tab-pane hidden" id="pane-settings">
+          <div class="settings-group">
+            <h4 class="settings-group-title">Home Radio Hub</h4>
+            <div class="form-group">
+              <label for="setting-home-city">Default Launch City</label>
+              <select id="setting-home-city" class="custom-select">
+                <option value="bengaluru" selected>Bengaluru (91.1 MHz)</option>
+                <option value="mumbai">Mumbai (98.3 MHz)</option>
+                <option value="delhi">Delhi (104.0 MHz)</option>
+                <option value="chennai">Chennai (93.5 MHz)</option>
+                <option value="kolkata">Kolkata (91.9 MHz)</option>
+                <option value="hyderabad">Hyderabad (92.7 MHz)</option>
+                <option value="pune">Pune (95.0 MHz)</option>
+                <option value="kochi">Kochi (94.3 MHz)</option>
+                <option value="goa">Goa (92.7 MHz)</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-top: 14px;">
+              <label for="setting-backend-url">Cloud Backend URL (for GitHub Pages)</label>
+              <input type="url" id="setting-backend-url" class="custom-input" placeholder="https://your-backend.onrender.com" />
+              <small style="color: var(--text-tertiary); font-size: 0.76rem; display: block; margin-top: 4px;">Optional: Connect GitHub Pages to your live Render/Railway backend for live sync and cloud database.</small>
+            </div>
+          </div>
+
+          <div class="settings-group">
+            <h4 class="settings-group-title">Notifications & Interactions</h4>
+
+            <div class="setting-toggle-row">
+              <div class="setting-text">
+                <strong>Live Broadcast Alerts</strong>
+                <p>Notify me whenever subscribed RJs start broadcasting</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="setting-live-alerts" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="setting-toggle-row">
+              <div class="setting-text">
+                <strong>Floating Listener Reactions</strong>
+                <p>Display live floating emojis from other listeners on air</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="setting-floating-reactions" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Account Sign Out -->
+          <div class="account-actions-box">
+            <button class="btn-account-signout" id="btn-account-signout">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
+              </svg>
+              <span>Switch Account / Sign Out</span>
+            </button>
+            <div class="app-version-caption">Tarang Radio v1.2 · Obsidian & Studio Edition</div>
+        </div>
+      </div>
+
+      <!-- Drawer Persistent Footer with Log Out -->
+      <div class="profile-drawer-footer">
+        <button class="btn-logout-sidebar" id="btn-logout">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span>Log Out</span>
+        </button>
+        <span class="drawer-version-tag">Tarang Radio v1.2</span>
+      </div>
+    </aside>
+
+    <!-- RJ "Go Live" Broadcast Studio Modal -->
+    <div class="modal-backdrop hidden" id="studio-modal">
+      <div class="studio-modal-box">
+        <div class="studio-header">
+          <div class="studio-badge-row">
+            <span class="studio-tag">TARANG CREATOR STUDIO</span>
+            <div class="on-air-sign" id="studio-on-air-sign">OFF AIR</div>
+          </div>
+          <button class="btn-modal-close" id="btn-close-studio" title="Close Studio">✕</button>
+        </div>
+
+        <div class="studio-body">
+          <h2 class="studio-title">Host Your Live Radio Show</h2>
+          <p class="studio-desc">Go on air right now in your city. Talk, play music, engage with live listeners, and build your Tarang radio fanbase.</p>
+
+          <form id="studio-form" class="studio-form-grid">
+            <div class="form-group">
+              <label for="broadcast-title">Show / Channel Name</label>
+              <input type="text" id="broadcast-title" placeholder="e.g. Chai & Late Night Confessions" value="The Indie Express with RJ" required>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="broadcast-rj">Your RJ Name</label>
+                <input type="text" id="broadcast-rj" placeholder="e.g. RJ Alwin" value="RJ Alwin" required>
+              </div>
+
+              <div class="form-group">
+                <label for="broadcast-city">Broadcast City</label>
+                <select id="broadcast-city" required>
+                  <option value="Bengaluru" selected>Bengaluru (91.1 MHz)</option>
+                  <option value="Mumbai">Mumbai (98.3 MHz)</option>
+                  <option value="Delhi">Delhi (104.0 MHz)</option>
+                  <option value="Chennai">Chennai (93.5 MHz)</option>
+                  <option value="Kolkata">Kolkata (91.9 MHz)</option>
+                  <option value="Hyderabad">Hyderabad (92.7 MHz)</option>
+                  <option value="Pune">Pune (95.0 MHz)</option>
+                  <option value="Kochi">Kochi (94.3 MHz)</option>
+                  <option value="Goa">Goa (92.7 MHz)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="broadcast-genre">Primary Genre / Format</label>
+                <select id="broadcast-genre">
+                  <option value="Talk">Talk & Banter</option>
+                  <option value="Indie">Indie & Acoustic</option>
+                  <option value="Bollywood">Bollywood Chill</option>
+                  <option value="Morning Show">Morning Energy</option>
+                  <option value="Late Night">Late Night Talks</option>
+                  <option value="Comedy">Comedy & Satire</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="broadcast-lang">Languages Spoken</label>
+                <input type="text" id="broadcast-lang" value="English & Hindi" placeholder="e.g. Hindi, Kannada, English">
+              </div>
+            </div>
+
+            <!-- RJ Soundboard Section -->
+            <div class="soundboard-section">
+              <label class="soundboard-label">RJ Soundboard & FX (Tap to trigger on-air!)</label>
+              <div class="soundboard-buttons">
+                <button type="button" class="sfx-btn" data-sfx="airhorn">📢 Airhorn Drop</button>
+                <button type="button" class="sfx-btn" data-sfx="applause">👏 Studio Applause</button>
+                <button type="button" class="sfx-btn" data-sfx="jingle">📻 Tarang Jingle</button>
+                <button type="button" class="sfx-btn" data-sfx="scratch">💿 Vinyl Scratch</button>
+                <button type="button" class="sfx-btn" data-sfx="laugh">😂 Laugh Track</button>
+              </div>
+            </div>
+
+            <!-- Studio Audio Level Meter & Mic Toggle -->
+            <div class="studio-mic-control-box">
+              <div class="mic-status-row">
+                <div class="mic-info">
+                  <span class="mic-icon-live">🎙️</span>
+                  <div>
+                    <strong id="mic-label">Creator Mic: Muted</strong>
+                    <p class="mic-hint">Click unmute to talk live or use synthesized voice drops</p>
+                  </div>
+                </div>
+                <button type="button" class="btn-mic-toggle" id="btn-toggle-studio-mic">Unmute Mic</button>
+              </div>
+
+              <!-- Animated VU Meter -->
+              <div class="vu-meter-bar">
+                <div class="vu-fill" id="vu-meter-fill"></div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="studio-actions-footer">
+              <button type="button" class="btn-cancel" id="btn-cancel-studio">Cancel</button>
+              <a href="studio.html" class="btn-cancel" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;background:#1e1e2c;color:#ff851a;border:1px solid rgba(255,102,0,0.3);" title="Open Studio directly without saving channel">
+                <span>🎛️ Quick Studio Deck</span>
+              </a>
+              <button type="submit" class="btn-start-broadcast" id="btn-broadcast-toggle">
+                <span class="broadcast-dot"></span>
+                <span id="broadcast-btn-text">Go Live & Open Studio</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI RJ Live Show On-Air Display Modal -->
+    <div class="modal-backdrop hidden" id="airj-modal">
+      <div class="airj-modal-box">
+        <div class="airj-modal-header">
+          <div class="airj-modal-host-meta">
+            <div class="airj-modal-avatar">🎙️</div>
+            <div>
+              <div class="airj-modal-badge-row">
+                <span class="airj-onair-indicator">● ON AIR</span>
+                <span class="airj-modal-city-tag" id="airj-modal-city-tag">Bengaluru, Karnataka (91.1 MHz)</span>
+                <span class="airj-modal-lang-tag" id="airj-modal-lang-tag">ಕನ್ನಡ (Kannada)</span>
+                <span class="airj-modal-engine-tag" id="airj-modal-engine-tag">⚡ Live Broadcast</span>
+              </div>
+              <h3 class="airj-modal-title" id="airj-modal-host-title">RJ Kavya On Air</h3>
+            </div>
+          </div>
+          <button class="btn-modal-close" id="btn-close-airj-modal" title="Minimize Broadcast">✕</button>
+        </div>
+
+        <!-- Real-Time Weather Banner inside show modal -->
+        <div class="airj-weather-card">
+          <div class="weather-card-left">
+            <span class="weather-big-icon" id="airj-modal-weather-icon">⛅</span>
+            <div>
+              <div class="weather-temp-row">
+                <span class="weather-temp-num" id="airj-modal-temp">26°C</span>
+                <span class="weather-condition-label" id="airj-modal-cond">Partly Cloudy</span>
+              </div>
+              <span class="weather-meta-sub" id="airj-modal-weather-meta">Wind 10 km/h · Humidity 54% · Open-Meteo Real-Time</span>
+            </div>
+          </div>
+          <div class="weather-card-right">
+            <span class="weather-sensor-tag">🛰️ Real-Time Sensors</span>
+            <span class="weather-alert-tag hidden" id="airj-modal-weather-alert">⚠️ Heat Advisory</span>
+          </div>
+        </div>
+
+        <!-- 5 Sequential Broadcast Steps -->
+        <div class="airj-segments-container airj-5steps-layout">
+          <!-- Step 1: Song Completion Greeting -->
+          <div class="airj-segment-card" id="seg-step1-card">
+            <div class="segment-card-header">
+              <span class="segment-pill greeting">🎧 STEP 1: WELCOME & GREETING</span>
+              <span class="segment-step-tag">Sequence 1/5</span>
+            </div>
+            <p class="segment-text" id="airj-modal-step1">Welcoming listeners in native tongue...</p>
+          </div>
+
+          <!-- Step 2: Live Weather Announcement -->
+          <div class="airj-segment-card" id="seg-step2-card">
+            <div class="segment-card-header">
+              <span class="segment-pill weather">⛅ STEP 2: WEATHER UPDATE</span>
+              <span class="segment-step-tag">Sequence 2/5</span>
+            </div>
+            <p class="segment-text" id="airj-modal-step2">Explaining city temperature and outdoor vibe...</p>
+          </div>
+
+          <!-- Step 3: Local Traffic Updates -->
+          <div class="airj-segment-card" id="seg-step3-card">
+            <div class="segment-card-header">
+              <span class="segment-pill traffic">🚗 STEP 3: TRAFFIC UPDATE</span>
+              <span class="segment-step-tag">Sequence 3/5</span>
+            </div>
+            <p class="segment-text" id="airj-modal-step3">Checking major commuter bottlenecks and flyovers...</p>
+          </div>
+
+          <!-- Step 4: Location-Specific Comedian Joke -->
+          <div class="airj-segment-card joke-card" id="seg-step4-card">
+            <div class="segment-card-header">
+              <span class="segment-pill comedy">😂 STEP 4: LOCAL COMEDY JOKE</span>
+              <span class="segment-step-tag">Sequence 4/5</span>
+            </div>
+            <p class="segment-text" id="airj-modal-step4">Preparing witty standup comedy punchline...</p>
+          </div>
+
+          <!-- Step 5: Next Song Intro -->
+          <div class="airj-segment-card song-intro-card" id="seg-step5-card">
+            <div class="segment-card-header">
+              <span class="segment-pill nextsong">🎵 STEP 5: NEXT SONG INTRODUCTION</span>
+              <span class="segment-step-tag">Sequence 5/5</span>
+            </div>
+            <p class="segment-text" id="airj-modal-step5">Introducing upcoming track and artist...</p>
+            <div class="weather-song-pill" id="airj-modal-song-pill">
+              <span>🎶 Next Track:</span> <strong id="airj-modal-song-title">Filter Coffee Morning - Acoustic Strings</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live AI RJ Subtitle Bar with Soundwave -->
+        <div class="airj-live-transcript-box">
+          <div class="transcript-top-row">
+            <div class="transcript-status-row">
+              <span class="wave-bar active"></span><span class="wave-bar active"></span><span class="wave-bar active"></span><span class="wave-bar active"></span>
+              <strong id="airj-speech-status">RJ Speaking Live...</strong>
+            </div>
+            <span class="transcript-hint" id="airj-transcript-hint">Following 5-step broadcast sequence</span>
+          </div>
+          <p class="live-subtitle-text" id="airj-live-subtitle">"Namaskara Bengaluru! This is your host live on Tarang Radio..."</p>
+        </div>
+
+        <div class="airj-modal-footer">
+          <button class="btn-skip-to-song" id="btn-skip-to-song">
+            <span>⚡ Skip Speech & Play Next Song Directly</span>
+          </button>
+          <button class="btn-close-airj-show" id="btn-stop-airj-show">
+            <span>Stop RJ Broadcast</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</body>
+</html>

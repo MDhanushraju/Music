@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Tarang Radio</title>
+  <meta name="description" content="Sign in to Tarang Radio to follow live RJs, save your favorite city frequencies, and broadcast live.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="./assets/login-BtLML902.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="stylesheet" crossorigin href="./assets/style-jpzXCJSJ.css">
+</head>
+<body class="login-body">
+  <div class="login-wrapper">
+    <!-- Top Nav / Back to Radio -->
+    <header class="login-header">
+      <a href="index.html" class="brand-logo" id="login-brand-logo">
+        <div class="logo-wave-icon">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 16C4 16 7 8 10 8C13 8 14 24 17 24C20 24 21 12 24 12C27 12 28 16 28 16" stroke="url(#paint0_linear)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="paint0_linear" x1="4" y1="8" x2="28" y2="24" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FFA826"/>
+                <stop offset="0.5" stop-color="#FF6600"/>
+                <stop offset="1" stop-color="#E54600"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="brand-name">tarang</span>
+      </a>
+
+      <a href="index.html" class="btn-skip-login">
+        <span>Listen as Guest</span>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+          <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </header>
+
+    <!-- Main Login Card -->
+    <main class="login-main">
+      <div class="login-card">
+        <!-- Card Header with On-Air Beacon -->
+        <div class="login-card-header">
+          <div class="login-signal-badge">
+            <span class="pulse-beacon-orange"></span>
+            <span>ON AIR BROADCAST NETWORK</span>
+          </div>
+          <h1 class="login-title">Tune In to Your Radio</h1>
+          <p class="login-subtitle">Enter your mobile number to sign in, sync subscribed channels, and broadcast live.</p>
+        </div>
+
+        <!-- Phone & OTP Form -->
+        <form class="login-form" id="login-form">
+          <!-- Step 1: Mobile Phone Number Input -->
+          <div class="step-container" id="step-phone">
+            <div class="form-group">
+              <label for="login-phone" class="form-label">Mobile Number</label>
+              <div class="phone-input-group">
+                <div class="country-prefix">
+                  <span class="flag-icon">🇮🇳</span>
+                  <span>+91</span>
+                </div>
+                <input 
+                  type="tel" 
+                  id="login-phone" 
+                  placeholder="98765 43210" 
+                  pattern="[0-9]{10}" 
+                  maxlength="10" 
+                  value="9876543210"
+                  required 
+                  autocomplete="tel"
+                />
+              </div>
+            </div>
+
+            <button type="submit" class="btn-primary-orange" id="btn-request-otp">
+              <span>Send Verification Code</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Step 2: 6-Digit OTP Verification (Initially Hidden) -->
+          <div class="step-container hidden" id="step-otp">
+            <div class="otp-notice-row">
+              <div>
+                <span class="otp-sent-label">Code sent to </span>
+                <strong id="display-phone-number">+91 98765 43210</strong>
+              </div>
+              <button type="button" class="btn-change-phone" id="btn-change-phone">Change</button>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Enter 6-Digit Verification Code</label>
+              <div class="otp-boxes-wrapper">
+                <input type="text" maxlength="1" class="otp-digit" data-index="0" autofocus value="1">
+                <input type="text" maxlength="1" class="otp-digit" data-index="1" value="2">
+                <input type="text" maxlength="1" class="otp-digit" data-index="2" value="3">
+                <input type="text" maxlength="1" class="otp-digit" data-index="3" value="4">
+                <input type="text" maxlength="1" class="otp-digit" data-index="4" value="5">
+                <input type="text" maxlength="1" class="otp-digit" data-index="5" value="6">
+              </div>
+            </div>
+
+            <!-- Dev mode reminder badge -->
+            <div class="dev-otp-hint">
+              <span class="hint-icon">💡</span>
+              <span><strong>Developer Mode:</strong> Code <code>123456</code> is accepted automatically!</span>
+            </div>
+
+            <button type="button" class="btn-primary-orange" id="btn-verify-otp">
+              <span>Verify & Launch Radio</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+
+            <div class="resend-timer-box">
+              <span id="resend-countdown">Resend code in 28s</span>
+              <button type="button" class="btn-resend-link hidden" id="btn-resend-otp">Resend OTP</button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Divider -->
+        <div class="login-divider">
+          <span>OR QUICK ACCESS</span>
+        </div>
+
+        <!-- 1-Click Fast Login Options -->
+        <div class="quick-login-grid">
+          <button type="button" class="btn-quick-persona" id="btn-login-alwin">
+            <div class="persona-avatar">AJ</div>
+            <div class="persona-meta">
+              <strong>Alwin Joseph (Pro RJ)</strong>
+              <span>Creator Profile with Live Shows & Studios</span>
+            </div>
+          </button>
+
+          <button type="button" class="btn-quick-persona" id="btn-login-guest">
+            <div class="persona-avatar guest">🎧</div>
+            <div class="persona-meta">
+              <strong>Guest Listener</strong>
+              <span>Explore Indian City Radios without saving</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Card Footer -->
+        <footer class="login-card-footer">
+          <p>By tuning in, you agree to Tarang's <a href="#">Terms</a> & <a href="#">Community Guidelines</a>.</p>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>
